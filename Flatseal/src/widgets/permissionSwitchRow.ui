@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealPermissionSwitchRow" parent="AdwActionRow">
+    <property name="sensitive">False</property>
+    <property name="activatable-widget">content</property>
+    <child>
+      <object class="GtkBox" id="statusBox">
+        <property name="valign">center</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSwitch" id="content">
+        <property name="valign">center</property>
+      </object>
+    </child>
+  </template>
+</interface>

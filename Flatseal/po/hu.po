@@ -1,0 +1,621 @@
+# Hungarian translations for flatseal package.
+# Copyright (C) 2020 THE flatseal'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# Automatically generated, 2020.
+# Dévényi Benedek <rdbende@proton.me>, 2024.
+# grx005 <hunorjani17@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"PO-Revision-Date: 2025-09-22 20:47+0200\n"
+"Last-Translator: grx005 <hunorjani17 at gmail dot com>\n"
+"Language-Team: Hungarian\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 48.0\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
+msgid "Manage Flatpak permissions"
+msgstr "A Flatpak engedélykezelője"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:14
+msgid "seal;sandbox;override;"
+msgstr "tömítés;homokozó;felülírás;"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"A Flatseal egy grafikus segédprogram, amellyel áttekintheti és módosíthatja "
+"a Flatpak-alkalmazások engedélyeit."
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
+msgid "The Flatseal main window"
+msgstr "A Flatseal főablaka"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
+msgid "Flatseal showing filesystem permissions"
+msgstr "Fájlrendszer-engedélyek a Flatsealben"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
+msgid "Flatseal showing global overrides"
+msgstr "Globális felülírások a Flatsealben"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "Utoljára kiválasztott alkalmazásazonosító"
+
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Beszélget"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Tulajdonol"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Az alkalmazás által elért közismert nevek a munkamenet buszon"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Az alkalmazás által elért közismert nevek a rendszer buszon"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "Hardveres gyorsítás"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "Beviteli eszközök"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "Virtualizálás"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "Megosztott memória"
+
+#: src/models/devices.js:65
+msgid "USB devices"
+msgstr "USB-eszközök"
+
+#: src/models/devices.js:72
+msgid "All devices (e.g. webcam)"
+msgstr "Minden eszköz (pl. webkamera)"
+
+#: src/models/devices.js:97
+msgid "List of devices available in the sandbox"
+msgstr "A homokozóban elérhető eszközök"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Fejlesztési rendszerhívások (pl. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Más architektúrák programjai"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "CAN (Controller Area Network) -busz"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Alkalmazási megosztott memória"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Az alkalmazás számára elérhető szolgáltatások"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Minden rendszerfájl"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Minden rendszerkönyvtár, végrehajtható fájl és statikus adat"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Minden rendszerkonfiguráció"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Minden felhasználói fájl"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "Az alkalmazás számára elérhető fájlrendszer-részletek"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Egyéb fájlok"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "pl. ~/játékok:ro, xdg-pictures, stb."
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Fájlok"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "pl. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr ""
+"A homokozóban létrehozott, a felhasználói mappához relatív elérési utak"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Háttérmunka"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Futhat a háttérben"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Értesítések"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Értesítéseket küldhet"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Mikrofon"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Használhatja a mikrofont"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Hangszórók"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Hangot játszhat le a hangszórókon"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Kamera"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Videót rögzíthet a kamerával"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Hely"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Hozzáférhet az Ön tartózkodási helyéhez"
+
+#: src/models/portals.js:216
+msgid "List of resources selectively granted to the application"
+msgstr "Az alkalmazásnak kifejezetten megadott engedélyek"
+
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "A Flatpak telepített verziója nem támogatja"
+
+#: src/models/portals.js:264
+msgid "Requires permission store version 2 or newer"
+msgstr "Engedélytároló 2. vagy újabb verziója szükséges"
+
+#: src/models/portals.js:272
+msgid "Portal data has not been set up yet"
+msgstr "A portál adatai még nem lettek beállítva"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Hálózat"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Folyamatok közötti kommunikáció"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "A gazdarendszerrel megosztott alrendszerek"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11-ablakrendszer"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland-ablakrendszer"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Tartalék X11-ablakrendszer"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio-hangkiszolgáló"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus munkamenet busz"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus rendszer busz"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Secure Shell ügynök"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Intelligens kártyák"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Nyomtatási rendszer"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "GPG-ügynöki (gpg-agent) könyvtárak"
+
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr "A Wayland-szoftvercsatorna örökölése"
+
+#: src/models/sockets.js:132
+msgid "List of well-known sockets available in the sandbox"
+msgstr "A homokozóban elérhető közismert szoftvercsatornák"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "Változók"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "pl. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "Az alkalmazás számára exportált változók"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%Y. %B %e."
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "Verzió"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "Utolsó frissítés"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "Futtatókörnyezet"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "Érvénytelen beállítás"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "Alkalmazás _részletei"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Az alkalmazás megjelenítése a szoftverkezelőben"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Nem található szoftverkezelő"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "Minden alkalmazás"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Az összes Flatpak alkalmazásra érvényes módosítások"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Flatpak-verzió"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "Portál-verzió"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "A módosítások elérési útja"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Súgó"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Dokumentáció"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Gyorsbillentyűk"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "A Flatseal _névjegye"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Globálisan módosítva"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "A felhasználó által módosítva"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "ezt az abszolút elérési utat"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "ezt a felhasználói mappához relatív elérési utat"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "az összes rendszerkonfigurációt"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "az összes rendszerkönyvtárat, végrehajtható fájlt és statikus adatot"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "az összes rendszerfájlt"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "az összes felhasználói fájlt"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "az asztali könyvtárat"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "a dokumentumok könyvtárát"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "a letöltési könyvtárat"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "a zenei könyvtárat"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "a képek könyvtárát"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "a nyilvános könyvtárat"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "a videók könyvtárát"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "a sablonok könyvtárát"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "a konfigurációs könyvtárat"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "a gyorsítótár könyvtárat"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "az adatkönyvtárat"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "a futtatókörnyezet könyvtárát"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Olvashatja: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Olvashatja és módosíthatja: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Olvashatja, módosíthatja és létrehozhatja: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Nem olvashatja: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Nem olvashatja és módosíthatja: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Nem olvashatja, módosíthatja vagy hozhatja létre: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "Visszaállítás"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "Az alapértelmezett elérési útvonalakat nem lehet eltávolítani"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+msgid "_Reset"
+msgstr "Alap_helyzet"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "Az alkalmazásban nem történt változás"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "Az alkalmazás engedélyeinek alaphelyzetbe állítása"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ""
+", beleértve a nem a Flatseal használatával végrehajtott változtatásokat"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "Általános"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "Emlékeztetők megjelenítése"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "Dokumentáció megjelenítése"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "Menü megnyitása"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "Kilépés"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "Navigáció"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "Ugrás balra"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "Ugrás felfelé"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "Ugrás jobbra"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "Ugrás lefelé"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+msgid "Applications"
+msgstr "Alkalmazások"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "Keresés"
+
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "Engedélyek"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "Átkapcsolás"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "Dokumentáció"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "Következő keresése"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "Előző keresése"
+
+#: src/widgets/window.js:98
+msgid "Permissions have been reset"
+msgstr "Az engedélyek vissza lettek állítva"
+
+#: src/widgets/window.js:99
+msgid "_Undo"
+msgstr "_Visszavonás"
+
+#: src/widgets/window.js:105
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "Helytelen tartalom miatt a módosítások nem tölthetők be"
+
+#: src/widgets/window.js:112
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "Frissítve a Flatpak telepítések változásai miatt"
+
+#: src/widgets/window.ui:31
+msgid "Main Menu"
+msgstr "Főmenü"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "Nem található alkalmazás."

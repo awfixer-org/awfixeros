@@ -1,0 +1,103 @@
+.navigation-sidebar row {
+    padding: 3px 0px;
+}
+
+.permissions clamp {
+    margin-bottom: 25px;
+}
+
+row .status {
+    padding: 8px;
+    background-color: transparent;
+    background-image: -gtk-icontheme("dialog-warning-symbolic");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+}
+row .status.user {
+    color: @accent_color;
+}
+row .status.global {
+    color: @insensitive_fg_color;
+}
+
+row .content .bus .info,
+row .content .variable .info,
+row .content .path .info {
+    padding: 8px;
+    color: @accent_color;
+    background-color: transparent;
+    background-image: -gtk-icontheme("dialog-question-symbolic");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+}
+
+row .content .relative.path .info,
+row .content .bus .info,
+row .content .variable .info {
+    background-image: -gtk-icontheme("object-select-symbolic");
+}
+
+row .content .bus.not-valid .info,
+row .content .variable.not-valid .info,
+row .content .path.not-valid .info {
+    color: @warning_color;
+    background-image: -gtk-icontheme("dialog-warning-symbolic");
+}
+
+row .content entry,
+row .content .status,
+row .content button {
+   margin-left: 8px;
+}
+
+row .content .path popover treeview {
+   color: @insensitive_fg_color;
+   font-size: small;
+   background-color: transparent;
+}
+row .content .path popover treeview:selected {
+   background-color: @theme_bg_color;
+}
+
+.permissions .app-info {
+    margin-top: 15px;
+}
+.permissions .app-info.compact {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.permissions .app-info .icon {
+    margin: 25px 25px 25px 0px;
+}
+.permissions .app-info.compact .icon {
+    margin: 5px 0px 5px 0px;
+}
+
+.permissions .app-info .name {
+    font-size: xx-large;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.permissions .app-info .author {
+    margin-bottom: 15px;
+}
+.permissions .app-info.compact .author {
+    margin-bottom: 25px;
+}
+
+.permissions .app-info .description {
+    color: @insensitive_fg_color;
+    margin-bottom: 5px;
+}
+
+.permissions .app-info .value {
+    margin-bottom: 5px;
+}
+
+.reset-button image {
+    color: @warning_color;
+}

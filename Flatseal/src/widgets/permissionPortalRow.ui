@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealPermissionPortalRow" parent="AdwActionRow">
+    <property name="sensitive">False</property>
+    <property name="activatable-widget">stateSwitch</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkButton" id="unsetButton">
+            <property name="tooltip-text" translatable="yes">Unset</property>
+            <property name="valign">center</property>
+            <property name="icon-name">edit-clear-all-symbolic</property>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSwitch" id="stateSwitch">
+            <property name="valign">center</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

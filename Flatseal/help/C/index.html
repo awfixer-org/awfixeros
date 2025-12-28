@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="data:text/css,%3Aroot%20%7B%0A%2D%2Dtext%2Dcolor%3A%20%2324292e%3B%0A%2D%2Dbackground%2Dcolor%3A%20%23ffffff%3B%0A%2D%2Dalt%2Dbackground%2Dcolor%3A%20%23f6f8fa%3B%0A%2D%2Dlink%2Dcolor%3A%20%230366d6%3B%0A%2D%2Dblockquote%2Dtext%2Dcolor%3A%20%236a737d%3B%0A%2D%2Dblockquote%2Dborder%2Dcolor%3A%20%23dfe2e5%3B%0A%2D%2Dheader%2Dborder%2Dcolor%3A%20%23eaecef%3B%0A%2D%2Dhr%2Dbackground%2Dcolor%3A%20%23e1e4e8%3B%0A%2D%2Dtable%2Dtr%2Dborder%2Dcolor%3A%20%23c6cbd1%3B%0A%2D%2Dtable%2Dtd%2Dborder%2Dcolor%3A%20%23dfe2e5%3B%0A%2D%2Dkbd%2Dtext%2Dcolor%3A%20%23444d56%3B%0A%2D%2Dkbd%2Dbackground%2Dcolor%3A%20%23fafbfc%3B%0A%2D%2Dkbd%2Dborder%2Dcolor%3A%20%23c6cbd1%3B%0A%2D%2Dkbd%2Dshadow%2Dcolor%3A%20%23959da5%3B%0A%7D%0A%2A%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0A%7D%0Ahtml%20%7B%0Afont%2Dsize%3A%2016px%3B%0A%7D%0Abody%20%7B%0Acolor%3A%20var%28%2D%2Dtext%2Dcolor%29%3B%0Abackground%2Dcolor%3A%20var%28%2D%2Dbackground%2Dcolor%29%3B%0Afont%2Dfamily%3A%20%22Fira%20Sans%22%2C%20fira%2Dsans%2C%20sans%2Dserif%2C%20color%2Demoji%3B%0Aline%2Dheight%3A%201%2E5%3B%0Aword%2Dwrap%3A%20break%2Dword%3B%0Amax%2Dwidth%3A%20980px%3B%0Amargin%3A%20auto%3B%0Apadding%3A%204em%3B%0A%7D%0A%40media%20screen%20and%20%28max%2Dwidth%3A%20799px%29%20%7B%0Ahtml%20%7B%0Afont%2Dsize%3A%2014px%3B%0A%7D%0Abody%20%7B%0Apadding%3A%201em%3B%0A%7D%0A%7D%0A%40media%20screen%20and%20%28min%2Dwidth%3A%201280px%29%20%7B%0Ahtml%20%7B%0Afont%2Dsize%3A%2018px%3B%0A%7D%0A%7D%0Aa%20%7B%0Abackground%2Dcolor%3A%20transparent%3B%0Acolor%3A%20var%28%2D%2Dlink%2Dcolor%29%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Aactive%2C%0Aa%3Ahover%20%7B%0Aoutline%2Dwidth%3A%200%3B%0A%7D%0Aa%3Ahover%20%7B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0Astrong%20%7B%0Afont%2Dweight%3A%20600%3B%0A%7D%0Aimg%20%7B%0Aborder%2Dstyle%3A%20none%3B%0A%7D%0Ahr%20%7B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0Aheight%3A%200%2E25em%3B%0Apadding%3A%200%3B%0Amargin%3A%201%2E5em%200%3B%0Aoverflow%3A%20hidden%3B%0Abackground%2Dcolor%3A%20var%28%2D%2Dhr%2Dbackground%2Dcolor%29%3B%0Aborder%3A%200%3B%0A%7D%0Ahr%3A%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ahr%3A%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ainput%20%7B%0Afont%2Dfamily%3A%20inherit%3B%0Afont%2Dsize%3A%20inherit%3B%0Aline%2Dheight%3A%20inherit%3B%0Amargin%3A%200%3B%0Aoverflow%3A%20visible%3B%0A%7D%0A%5Btype%3D%22checkbox%22%5D%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0Apadding%3A%200%3B%0A%7D%0Atable%20%7B%0Aborder%2Dspacing%3A%200%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atd%2C%0Ath%20%7B%0Apadding%3A%200%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Afont%2Dweight%3A%20600%3B%0Amargin%3A%200%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%202em%3B%0A%7D%0Ah2%20%7B%0Afont%2Dsize%3A%201%2E5em%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%201%2E25em%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%200%2E875em%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%200%2E85em%3B%0A%7D%0Ap%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%2E625em%3B%0A%7D%0Ablockquote%20%7B%0Amargin%3A%200%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%2Dleft%3A%200%3B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Aol%20ol%2C%0Aul%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Droman%3B%0A%7D%0Aul%20ul%20ol%2C%0Aul%20ol%20ol%2C%0Aol%20ul%20ol%2C%0Aol%20ol%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Dalpha%3B%0A%7D%0Add%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Acode%2C%0Akbd%2C%0Apre%20%7B%0Afont%2Dfamily%3A%20%22Fira%20Mono%22%2C%20fira%2Dmono%2C%20monospace%2C%20color%2Demoji%3B%0Afont%2Dsize%3A%201em%3B%0Aword%2Dwrap%3A%20normal%3B%0A%7D%0Acode%20%7B%0Aborder%2Dradius%3A%200%2E1875em%3B%0Afont%2Dsize%3A%200%2E85em%3B%0Apadding%3A%200%2E2em%200%2E4em%3B%0Amargin%3A%200%3B%0A%7D%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0Afont%2Dsize%3A%200%2E75em%3B%0A%7D%0Apre%3Ecode%20%7B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Afont%2Dsize%3A%201em%3B%0Aword%2Dbreak%3A%20normal%3B%0Awhite%2Dspace%3A%20pre%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%3B%0A%7D%0A%2Ehighlight%20%7B%0Amargin%2Dbottom%3A%201em%3B%0A%7D%0A%2Ehighlight%20pre%20%7B%0Amargin%2Dbottom%3A%200%3B%0Aword%2Dbreak%3A%20normal%3B%0A%7D%0A%2Ehighlight%20pre%2C%0Apre%20%7B%0Apadding%3A%201em%3B%0Aoverflow%3A%20auto%3B%0Afont%2Dsize%3A%200%2E85em%3B%0Aline%2Dheight%3A%201%2E5%3B%0Abackground%2Dcolor%3A%20var%28%2D%2Dalt%2Dbackground%2Dcolor%29%3B%0Aborder%2Dradius%3A%200%2E1875em%3B%0A%7D%0Apre%20code%20%7B%0Abackground%2Dcolor%3A%20transparent%3B%0Aborder%3A%200%3B%0Adisplay%3A%20inline%3B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Aoverflow%3A%20visible%3B%0Aline%2Dheight%3A%20inherit%3B%0Aword%2Dwrap%3A%20normal%3B%0A%7D%0A%2Epl%2D0%20%7B%0Apadding%2Dleft%3A%200%20%21important%3B%0A%7D%0A%2Epl%2D1%20%7B%0Apadding%2Dleft%3A%200%2E25em%20%21important%3B%0A%7D%0A%2Epl%2D2%20%7B%0Apadding%2Dleft%3A%200%2E5em%20%21important%3B%0A%7D%0A%2Epl%2D3%20%7B%0Apadding%2Dleft%3A%201em%20%21important%3B%0A%7D%0A%2Epl%2D4%20%7B%0Apadding%2Dleft%3A%201%2E5em%20%21important%3B%0A%7D%0A%2Epl%2D5%20%7B%0Apadding%2Dleft%3A%202em%20%21important%3B%0A%7D%0A%2Epl%2D6%20%7B%0Apadding%2Dleft%3A%202%2E5em%20%21important%3B%0A%7D%0A%2Emarkdown%2Dbody%3A%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3A%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%20%21important%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%20%21important%3B%0A%7D%0Aa%3Anot%28%5Bhref%5D%29%20%7B%0Acolor%3A%20inherit%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0A%2Eanchor%20%7B%0Afloat%3A%20left%3B%0Apadding%2Dright%3A%200%2E25em%3B%0Amargin%2Dleft%3A%20%2D1%2E25em%3B%0Aline%2Dheight%3A%201%3B%0A%7D%0A%2Eanchor%3Afocus%20%7B%0Aoutline%3A%20none%3B%0A%7D%0Ap%2C%0Ablockquote%2C%0Aul%2C%0Aol%2C%0Adl%2C%0Atable%2C%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%201em%3B%0A%7D%0Ablockquote%20%7B%0Apadding%3A%200%201em%3B%0Acolor%3A%20var%28%2D%2Dblockquote%2Dtext%2Dcolor%29%3B%0Aborder%2Dleft%3A%200%2E25em%20solid%20var%28%2D%2Dblockquote%2Dborder%2Dcolor%29%3B%0A%7D%0Ablockquote%3E%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Ablockquote%3E%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Akbd%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%3A%200%2E1875em%200%2E3125em%3B%0Afont%2Dsize%3A%200%2E6875em%3B%0Aline%2Dheight%3A%201%3B%0Acolor%3A%20var%28%2D%2Dkbd%2Dtext%2Dcolor%29%3B%0Avertical%2Dalign%3A%20middle%3B%0Abackground%2Dcolor%3A%20var%28%2D%2Dkbd%2Dbackground%2Dcolor%29%3B%0Aborder%3A%20solid%201px%20var%28%2D%2Dkbd%2Dborder%2Dcolor%29%3B%0Aborder%2Dbottom%2Dcolor%3A%20var%28%2D%2Dkbd%2Dshadow%2Dcolor%29%3B%0Aborder%2Dradius%3A%203px%3B%0Abox%2Dshadow%3A%20inset%200%20%2D1px%200%20var%28%2D%2Dkbd%2Dshadow%2Dcolor%29%3B%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Amargin%2Dtop%3A%201%2E5em%3B%0Amargin%2Dbottom%3A%201em%3B%0Afont%2Dweight%3A%20600%3B%0Aline%2Dheight%3A%201%2E25%3B%0A%7D%0Ah1%3Ahover%20%2Eanchor%2C%0Ah2%3Ahover%20%2Eanchor%2C%0Ah3%3Ahover%20%2Eanchor%2C%0Ah4%3Ahover%20%2Eanchor%2C%0Ah5%3Ahover%20%2Eanchor%2C%0Ah6%3Ahover%20%2Eanchor%20%7B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Ah1%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%202em%3B%0Aborder%2Dbottom%3A%201px%20solid%20var%28%2D%2Dheader%2Dborder%2Dcolor%29%3B%0A%7D%0Ah2%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%201%2E5em%3B%0Aborder%2Dbottom%3A%201px%20solid%20var%28%2D%2Dheader%2Dborder%2Dcolor%29%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%201%2E25em%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%200%2E875em%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%200%2E85em%3B%0Aopacity%3A%200%2E67%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%2Dleft%3A%202em%3B%0A%7D%0Aul%20ul%2C%0Aul%20ol%2C%0Aol%20ol%2C%0Aol%20ul%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Ali%20%7B%0Aoverflow%2Dwrap%3A%20break%2Dword%3B%0A%7D%0Ali%3Ep%20%7B%0Amargin%2Dtop%3A%201em%3B%0A%7D%0Ali%2Bli%20%7B%0Amargin%2Dtop%3A%200%2E25em%3B%0A%7D%0Adl%20%7B%0Apadding%3A%200%3B%0A%7D%0Adl%20dt%20%7B%0Apadding%3A%200%3B%0Amargin%2Dtop%3A%201em%3B%0Afont%2Dsize%3A%201em%3B%0Afont%2Dstyle%3A%20italic%3B%0Afont%2Dweight%3A%20600%3B%0A%7D%0Adl%20dd%20%7B%0Apadding%3A%200%201em%3B%0Amargin%2Dbottom%3A%201em%3B%0A%7D%0Atable%20%7B%0Adisplay%3A%20block%3B%0Awidth%3A%20100%25%3B%0Aoverflow%3A%20auto%3B%0A%7D%0Atable%20th%20%7B%0Afont%2Dweight%3A%20600%3B%0A%7D%0Atable%20th%2C%0Atable%20td%20%7B%0Apadding%3A%200%2E375em%200%2E8125em%3B%0Aborder%3A%201px%20solid%20var%28%2D%2Dtable%2Dtd%2Dborder%2Dcolor%29%3B%0A%7D%0Atable%20tr%20%7B%0Abackground%2Dcolor%3A%20var%28%2D%2Dbackground%2Dcolor%29%3B%0Aborder%2Dtop%3A%201px%20solid%20var%28%2D%2Dtable%2Dtr%2Dborder%2Dcolor%29%3B%0A%7D%0Atable%20tr%3Anth%2Dchild%282n%29%20%7B%0Abackground%2Dcolor%3A%20var%28%2D%2Dalt%2Dbackground%2Dcolor%29%3B%0A%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%3B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0A%7D%0Aimg%5Balign%3Dright%5D%20%7B%0Apadding%2Dleft%3A%201%2E25em%3B%0A%7D%0Aimg%5Balign%3Dleft%5D%20%7B%0Apadding%2Dright%3A%201%2E25em%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20%7B%0Alist%2Dstyle%2Dtype%3A%20none%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%2B%2Etask%2Dlist%2Ditem%20%7B%0Amargin%2Dtop%3A%200%2E1875em%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20input%20%7B%0Amargin%3A%200%200%2E2em%200%2E25em%20%2D1%2E6em%3B%0Avertical%2Dalign%3A%20middle%3B%0A%7D%0A%3Aroot%20%7B%0A%2D%2Dtext%2Dcolor%3A%20%232e3436%3B%0A%2D%2Dbackground%2Dcolor%3A%20%23f6f5f4%3B%0A%2D%2Dalt%2Dbackground%2Dcolor%3A%20%23edeeef%3B%0A%2D%2Dlink%2Dcolor%3A%20%230d71de%3B%0A%2D%2Dblockquote%2Dtext%2Dcolor%3A%20%23747e85%3B%0A%2D%2Dblockquote%2Dborder%2Dcolor%3A%20%23d6d8da%3B%0A%2D%2Dheader%2Dborder%2Dcolor%3A%20%23e1e2e4%3B%0A%2D%2Dhr%2Dbackground%2Dcolor%3A%20%23d8dadd%3B%0A%2D%2Dtable%2Dtr%2Dborder%2Dcolor%3A%20%23bdc1c6%3B%0A%2D%2Dtable%2Dtd%2Dborder%2Dcolor%3A%20%23d6d8da%3B%0A%2D%2Dkbd%2Dtext%2Dcolor%3A%20%234e585e%3B%0A%2D%2Dkbd%2Dbackground%2Dcolor%3A%20%23f1f1f1%3B%0A%2D%2Dkbd%2Dborder%2Dcolor%3A%20%23bdc1c6%3B%0A%2D%2Dkbd%2Dshadow%2Dcolor%3A%20%238c939a%3B%0A%7D%0A%40media%20%28prefers%2Dcolor%2Dscheme%3A%20dark%29%20%7B%0A%3Aroot%20%7B%0A%2D%2Dtext%2Dcolor%3A%20%23eeeeec%3B%0A%2D%2Dbackground%2Dcolor%3A%20%23353535%3B%0A%2D%2Dalt%2Dbackground%2Dcolor%3A%20%233a3a3a%3B%0A%2D%2Dlink%2Dcolor%3A%20%23b5daff%3B%0A%2D%2Dblockquote%2Dtext%2Dcolor%3A%20%23a8a8a6%3B%0A%2D%2Dblockquote%2Dborder%2Dcolor%3A%20%23525252%3B%0A%2D%2Dheader%2Dborder%2Dcolor%3A%20%23474747%3B%0A%2D%2Dhr%2Dbackground%2Dcolor%3A%20%23505050%3B%0A%2D%2Dtable%2Dtr%2Dborder%2Dcolor%3A%20%23696969%3B%0A%2D%2Dtable%2Dtd%2Dborder%2Dcolor%3A%20%23525252%3B%0A%2D%2Dkbd%2Dtext%2Dcolor%3A%20%23cececc%3B%0A%2D%2Dkbd%2Dbackground%2Dcolor%3A%20%233c3c3c%3B%0A%2D%2Dkbd%2Dborder%2Dcolor%3A%20%23696969%3B%0A%2D%2Dkbd%2Dshadow%2Dcolor%3A%20%23979797%3B%0A%7D%0A%7D%0A" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+    .task-list-item-checkbox {
+      margin-left: -1.6em;
+    }
+  </style>
+</head>
+<body>
+<h1 id="documentation">Documentation</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li>
+<a href="#permissions">Permissions</a>
+<ul>
+<li>
+<a href="#share">Share</a>
+</li>
+<li>
+<a href="#socket">Socket</a>
+</li>
+<li>
+<a href="#device">Device</a>
+</li>
+<li>
+<a href="#allow">Allow</a>
+</li>
+<li>
+<a href="#filesystem">Filesystem</a>
+</li>
+<li>
+<a href="#persistent">Persistent</a>
+</li>
+<li>
+<a href="#environment">Environment</a>
+</li>
+<li>
+<a href="#system-bus">System Bus</a>
+</li>
+<li>
+<a href="#system-bus">Session Bus</a>
+</li>
+<li>
+<a href="#portals">Portals</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#tips-and-tricks">Tips and Tricks</a>
+<ul>
+<li>
+<a href="#manually-reset-flatseal-permissions">Manually reset Flatseal permissions</a>
+</li>
+<li>
+<a href="#add-new-translations">Add new translations</a>
+</li>
+<li>
+<a href="#enable-custom-installations">Enable custom installations</a>
+</li>
+<li>
+<a href="#use-custom-flatpak_user_dir">Use custom FLATPAK_USER_DIR</a>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="permissions">Permissions</h2>
+<p>This is the list of permissions supported by Flatseal. These descriptions are based on Flatpak’s <a href="https://docs.flatpak.org/en/latest/sandbox-permissions.html">official documentation</a> and extended with examples and references to make it easier for newcomers to understand.</p>
+<p>To summarize it, Flatpak provides two different permissions models: static and dynamic</p>
+<p>Static refers to the permissions set by the developers when applications are built. Static permissions are holes in the sandbox, e.g. an application built with <code>--filesystem=home</code> can access <em>all</em> user personal files. The benefit of this model is that developers can support Flatpak without any change in their applications code.</p>
+<p>Both Flatseal and <code>flatpak override</code> command-line tool, use the overrides backend to manage static permissions.</p>
+<p>Dynamic refers to the permissions granted by the users when applications run. Dynamic permissions rely on resource providers called <a href="https://github.com/flatpak/flatpak/wiki/Portals">Portals</a> and can require user confirmation, e.g. users can grant access to <em>one</em> specific file thanks to the <code>org.freedesktop.portal.FileChooser</code> portal. The benefit of this model is that users don’t need to trust applications with more resources than is strictly needed.</p>
+<p>Both Flatseal and <code>flatpak permissions</code> command-line tool, use the <code>org.freedesktop.impl.portal.PermissionStore</code> service to manage dynamic permissions.</p>
+<h3 id="share">Share</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Network</td>
+<td>Toggle</td>
+<td>Allow the application to have access to the network. <br /> <br /> For example, if it’s disabled for Firefox, it will no longer be possible to browse the internet with this application.</td>
+<td><code>--share=network</code> and <code>--unshare=network</code></td>
+</tr>
+<tr class="even">
+<td><a href="https://en.wikipedia.org/wiki/Inter-process_communication">Inter-process communications</a></td>
+<td>Toggle</td>
+<td>Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC.</td>
+<td><code>--share=ipc</code> and <code>--unshare=ipc</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="socket">Socket</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X11 windowing system</td>
+<td>Toggle</td>
+<td>Allow the application to open in an X11 window. <br /> <br /> Most applications use X11 for historical reasons, but is considered less secure.</td>
+<td><code>--socket=x11</code> and <code>--nosocket=x11</code></td>
+</tr>
+<tr class="even">
+<td>Wayland windowing system</td>
+<td>Toggle</td>
+<td>Allow the application to open in a Wayland window. <br /> <br /> Many applications do not use Wayland as it is a newer display protocol unlike X11, and is considered more secure, but either some applications require extra steps to use it (see <a href="#environment">environment variables</a> example for Firefox), or do not support Wayland at all.</td>
+<td><code>--socket=wayland</code> and <code>--nosocket=wayland</code></td>
+</tr>
+<tr class="odd">
+<td>Fallback to X11 windowing system</td>
+<td>Toggle</td>
+<td>Allow the application to open in an X11 window when Wayland is not available. This overrides the X11 windowing system option when enabled.</td>
+<td><code>--socket=fallback-x11</code> and <code>--nosocket=fallback-x11</code></td>
+</tr>
+<tr class="even">
+<td>PulseAudio sound server</td>
+<td>Toggle</td>
+<td>Allow the application to play sounds or get access to the microphone when using PulseAudio. <br /> <br /> For example, if it’s disabled for Rhythmbox, it will no longer be possible to listen to the music with this application.</td>
+<td><code>--socket=pulseaudio</code> and <code>--nosocket=pulseaudio</code></td>
+</tr>
+<tr class="odd">
+<td>D-Bus session bus</td>
+<td>Toggle</td>
+<td>Allow the application to have access to the entire session bus.</td>
+<td><code>--socket=session-dbus</code> and <code>--nosocket=session-dbus</code></td>
+</tr>
+<tr class="even">
+<td>D-Bus system bus</td>
+<td>Toggle</td>
+<td>Allow the application to have access to the entire system bus.</td>
+<td><code>--socket=system-dbus</code> and <code>--nosocket=system-dbus</code></td>
+</tr>
+<tr class="odd">
+<td>Secure Shell agent</td>
+<td>Toggle</td>
+<td>Allow the application to use SSH authentications.</td>
+<td><code>--socket=ssh-auth</code> and <code>--nosocket=ssh-auth</code></td>
+</tr>
+<tr class="even">
+<td><a href="https://wiki.debian.org/Smartcards">Smart cards</a></td>
+<td>Toggle</td>
+<td>Allow the application to use smart cards.</td>
+<td><code>--socket=pcsc</code> and <code>--nosocket=pcsc</code></td>
+</tr>
+<tr class="odd">
+<td>Printing system</td>
+<td>Toggle</td>
+<td>Allow the application to use printing systems. <br /> <br /> For example, if it’s disabled for LibreOffice, it will no longer be possible to print documents with this application.</td>
+<td><code>--socket=cups</code> and <code>--nosocket=cups</code></td>
+</tr>
+<tr class="even">
+<td>GPG-Agent directories</td>
+<td>Toggle</td>
+<td>Allow the application to access GPG-Agent directories.</td>
+<td><code>--socket=gpg-agent</code> and <code>--nosocket=gpg-agent</code></td>
+</tr>
+<tr class="odd">
+<td>Inherit Wayland socket</td>
+<td>Toggle</td>
+<td>Allow passing WAYLAND_SOCKET environment variable to the sandbox. <br /> <br /> For example, if it's disabled for Fcitx5, it won't be able to connect to Wayland and display its autocompletion dialogs.</td>
+<td><code>--socket=inherit-wayland-socket</code> and <code>--nosocket=inherit-wayland-socket</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="device">Device</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GPU acceleration</td>
+<td>Toggle</td>
+<td>Allow the application to access the graphics direct rendering to take advantage of GPU acceleration.</td>
+<td><code>--device=dri</code> and <code>--nodevice=dri</code></td>
+</tr>
+<tr class="even">
+<td>Input devices</td>
+<td>Toggle</td>
+<td>Allow input device access. <br /> <br /> Note that raw and virtual input devices could still require <a href="#device">All devices</a></td>
+<td><code>--device=input</code> and <code>--nodevice=input</code></td>
+</tr>
+<tr class="odd">
+<td>Virtualization</td>
+<td>Toggle</td>
+<td>Allow the application to support virtualization.</td>
+<td><code>--device=kvm</code> and <code>--nodevice=kvm</code></td>
+</tr>
+<tr class="even">
+<td>Shared memory</td>
+<td>Toggle</td>
+<td>Allow the application to access shared memory.</td>
+<td><code>--device=shm</code> and <code>--nodevice=shm</code></td>
+</tr>
+<tr class="odd">
+<td>USB devices</td>
+<td>Toggle</td>
+<td>Allow raw USB device access.</td>
+<td><code>--device=usb</code> and <code>--nodevice=usb</code></td>
+</tr>
+<tr class="even">
+<td>All devices</td>
+<td>Toggle</td>
+<td>Allow the application to access all devices, such as webcam and external devices. <br /> <br /> For example, if it’s disabled for Element, it will no longer be possible to do video calls with this application.</td>
+<td><code>--device=all</code> and <code>--nodevice=all</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="allow">Allow</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Development syscalls</td>
+<td>Toggle</td>
+<td>Allow the application to access to certain syscalls, such as <a href="https://en.wikipedia.org/wiki/Ptrace"><code>ptrace()</code></a> and <a href="https://en.wikipedia.org/wiki/Perf_(Linux)"><code>perf_event_open()</code></a>.</td>
+<td><code>--allow=devel</code> and <code>--disallow=devel</code></td>
+</tr>
+<tr class="even">
+<td>Programs from other architectures</td>
+<td>Toggle</td>
+<td>Allow the application to execute programs for an <a href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a> other than the one supported natively by the system.</td>
+<td><code>--allow=multiarch</code> and <code>--disallow=multiarch</code></td>
+</tr>
+<tr class="odd">
+<td>Bluetooth</td>
+<td>Toggle</td>
+<td>Allow the application to use Bluetooth.</td>
+<td><code>--allow=bluetooth</code> and <code>--disallow=bluetooth</code></td>
+</tr>
+<tr class="even">
+<td>Controller Area Network bus</td>
+<td>Toggle</td>
+<td>Allow the application to use canbus sockets. You must also have <a href="#share">network access</a> for this to work.</td>
+<td><code>--allow=canbus</code> and <code>--disallow=canbus</code></td>
+</tr>
+<tr class="odd">
+<td>Application Shared Memory</td>
+<td>Toggle</td> 
+<td>Allow the application to share its /dev/shm between instances of the same $FLATPAK_APP_ID. Introduced specifically for the Steam flatpak, to share its /dev/shm with sub-sandboxed games.</td>
+<td><code>--allow=per-app-dev-shm</code> and <code>--disallow=per-app-dev-shm</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="filesystem">Filesystem</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>All filesystem files</td>
+<td>Toggle</td>
+<td>Allow read-write access to the whole filesystem. Everything that isn’t writeable by the user will be read-only</td>
+<td><code>--filesystem=host</code> and <code>--nofilesystem=host</code></td>
+</tr>
+<tr class="even">
+<td>All system libraries, executables and static data</td>
+<td>Toggle</td>
+<td>Allow read-write access to system libraries located in <code>/usr</code>. Since this directory requires root access to write, the permission will be read-only.</td>
+<td><code>--filesystem=host-os</code> and <code>--nofilesystem=host-os</code></td>
+</tr>
+<tr class="odd">
+<td>All system configurations</td>
+<td>Toggle</td>
+<td>Allow read-write access to system configurations located in <code>/etc</code>. Since this directory requires root access to write, the permission will be read-only.</td>
+<td><code>--filesystem=host-etc</code> and <code>--nofilesystem=host-etc</code></td>
+</tr>
+<tr class="even">
+<td>All user files</td>
+<td>Toggle</td>
+<td>Allow read-write access to the user directory (<code>$HOME</code> or <code>~/</code>).</td>
+<td><code>--filesystem=home</code> and <code>--nofilesystem=home</code></td>
+</tr>
+<tr class="odd">
+<td>Other files</td>
+<td>Input</td>
+<td>Allow read-write access to the directory you desire. <br /> <br /> For example, you would put <code>~/games</code> if you want read-write access to <code>~/games</code>. If you want read-only access to <code>~/games</code>, then you would put <code>~/games:ro</code>.</td>
+<td><code>--filesystem=[PATH]</code>, <code>--filesystem=[PATH]:ro</code> and <code>--nofilesystem=[PATH]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="persistent">Persistent</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak-override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Files</td>
+<td>Input</td>
+<td>Allow the application to access the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (<code>$HOME</code> or <code>~/</code>), the targeted directory will be remapped to the application’s directory (<code>~/.var/app/$FLATPAK_APP_ID/[PATH]</code>) if it has no write access to the targeted directory. <br /> <br /> For example, persisting <code>.mozilla</code> will map <code>~/.mozilla</code> to <code>~/.var/app/org.mozilla.Firefox/.mozilla</code>. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to <code>~/</code>.</td>
+<td><code>--persist=[PATH]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="environment">Environment</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Variables</td>
+<td>Input</td>
+<td>Set an environment variable in the application to make the variable available to application when it runs. <br /> <br /> For example, adding <code>MOZ_ENABLE_WAYLAND=1</code> for Firefox to enable the Wayland back-end.</td>
+<td><code>--env=[VAR]=[VALUE]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-bus">System Bus</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Talks</td>
+<td>Input</td>
+<td>Allow the application to talk to system services. <br /> <br /> For example, adding <code>org.freedesktop.Accounts</code> will allow the application to access users login history.</td>
+<td><code>--system-talk-name=[NAME]</code></td>
+</tr>
+<tr class="even">
+<td>Owns</td>
+<td>Input</td>
+<td>Allow the application to own system services under the given name.</td>
+<td><code>--system-own-name=[NAME]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="session-bus">Session Bus</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th><code>flatpak override</code> equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Talks</td>
+<td>Input</td>
+<td>Allow the application to talk to session services. <br /> <br /> For example, adding <code>org.freedesktop.Notifications</code> will allow the application to send notifications.</td>
+<td><code>--talk-name=[NAME]</code></td>
+</tr>
+<tr class="even">
+<td>Owns</td>
+<td>Input</td>
+<td>Allow the application to own session services under the given name.</td>
+<td><code>--own-name=[NAME]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="portals">Portals</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Portal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Background</td>
+<td>Toggle</td>
+<td>Allow the application to run in the background.</td>
+<td><code>org.freedesktop.portal.Background</code></td>
+</tr>
+<tr class="even">
+<td>Notifications</td>
+<td>Toggle</td>
+<td>Allow the application to send notifications.</td>
+<td><code>org.freedesktop.portal.Notification</code></td>
+</tr>
+<tr class="odd">
+<td>Microphone</td>
+<td>Toggle</td>
+<td>Allow the application to listen to your microphone.</td>
+<td><code>org.freedesktop.portal.Device</code></td>
+</tr>
+<tr class="even">
+<td>Speakers</td>
+<td>Toggle</td>
+<td>Allow the application to play sounds to your speakers.</td>
+<td><code>org.freedesktop.portal.Device</code></td>
+</tr>
+<tr class="odd">
+<td>Camera</td>
+<td>Toggle</td>
+<td>Allow the application to record videos with your camera.</td>
+<td><code>org.freedesktop.portal.Device</code></td>
+</tr>
+<tr class="even">
+<td>Location</td>
+<td>Toggle</td>
+<td>Allow the application to access your location data.</td>
+<td><code>org.freedesktop.portal.Location</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tips-and-tricks">Tips and Tricks</h2>
+<h3 id="manually-reset-flatseal-permissions">Manually reset Flatseal permissions</h3>
+<p>If permissions are removed and is no longer possible to reset, run the following command from the terminal and re-start Flatseal:</p>
+<pre><code>$ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal</code></pre>
+<h3 id="add-new-translations">Add new translations</h3>
+<p>Add a new language and update translations:</p>
+<pre><code>$ git clone https://github.com/tchx84/Flatseal.git
+$ cd Flatseal
+$ echo &quot;es&quot; &gt;&gt; po/LINGUAS # es for Spanish
+$ meson _translate &amp;&amp; cd _translate
+$ ninja flatseal-pot
+$ ninja flatseal-update-po
+$ gedit ../po/es.po # translate the strings to Spanish</code></pre>
+<p>To test the translation language:</p>
+<pre><code>$ flatpak config --set languages es
+$ flatpak update org.gnome.Platform
+$ LC_ALL=es_PY.UTF-8 flatpak run com.github.tchx84.Flatseal</code></pre>
+<h3 id="enable-custom-installations">Enable custom installations</h3>
+<p>To enable a custom installation, e.g, <code>/xusr/custom/flatpak</code>.</p>
+<h4 id="flatpak-1.7.1-or-newer">Flatpak 1.7.1 or newer</h4>
+<ol type="1">
+<li>Launch Flatseal and select it to edit its own permissions.</li>
+<li>Enable <code>host-etc</code>, or type in <code>host-etc:ro</code> in the other option.</li>
+<li>Type in the custom installation path, e.g, <code>/xusr/custom/flatpak:ro</code>.</li>
+<li>Restart Flatseal.</li>
+</ol>
+<h4 id="all-versions">All versions</h4>
+<ol type="1">
+<li>Launch Flatseal and select it to edit its own permissions.</li>
+<li>Enable <code>host</code>, or type in <code>host:ro</code> in the other option.</li>
+<li>Restart Flatseal.</li>
+</ol>
+<p><strong>NOTE</strong>: To find these installations, Flatseal needs access to <code>/etc/flatpak/installations.d</code>. Before Flatpak 1.7.1, accessing the host <code>/etc</code> required the <code>host</code> permission, which was an all-or-nothing situation. By default, Flatseal will have minimal permissions, so it’s up to the user to decide to enable this feature.</p>
+<h3 id="use-custom-flatpak_user_dir">Use custom FLATPAK_USER_DIR</h3>
+<p>To use a custom <code>FLATPAK_USER_DIR</code>, e.g. <code>/var/home/user/.flatpak</code>.</p>
+<pre><code>flatpak --user override --filesystem=/var/home/user/.flatpak --env=FLATPAK_USER_DIR=/var/home/user/.flatpak com.github.tchx84.Flatseal</code></pre>
+<p><strong>NOTE</strong>: By default, <code>FLATPAK_USER_DIR</code> is not accessible from within the Flatpak sandbox, and Flatseal has no access to custom directories. Therefore, these overrides are needed.</p>
+</body>
+</html>
