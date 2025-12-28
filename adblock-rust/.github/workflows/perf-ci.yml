@@ -1,0 +1,44 @@
+# CI for performance benchmarking
+# Domains of interest:
+# * startup speed (== to parse and load all rules)
+# * network filter matching (== the avg time to check a request)
+# * first request matching delay (== time to check the first request)
+# * memory usage after loading rules and after a few requests
+name: Performance CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+permissions:
+  contents: write
+  pages: write
+  pull-requests: write
+
+jobs:
+  benchmark:
+    name: Performance benchmarking
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Run benchmarks
+        run: |
+          ./.github/scripts/run-benchmarks.sh | tee -a output.txt
+
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@d48d326b4ca9ba73ca0cd0d59f108f9e02a381c7 # v1.20.4
+        with:
+          name: Rust Benchmark
+          tool: 'cargo'
+          output-file-path: output.txt
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          alert-threshold: '110%' # fails on +10% regression
+          comment-on-alert: true
+          fail-on-alert: true
+          comment-always: true
+          # Upload results only for master
+          auto-push: ${{ github.ref == 'refs/heads/master' }}
