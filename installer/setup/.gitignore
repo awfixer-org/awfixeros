@@ -1,0 +1,13 @@
+.vscode/
+mesonbuild/
+build/
+debian/files
+debian/vanilla-first-setup.debhelper.log
+debian/vanilla-first-setup
+debian/.debhelper
+*/__pycache__
+*.pyc
+vanilla_first_setup/vanilla-first-setup.gresource
+.buildconfig
+install/
+localegen/

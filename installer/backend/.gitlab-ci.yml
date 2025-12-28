@@ -1,0 +1,18 @@
+image: "rust:latest"
+
+cargo:version:
+  script:
+    - rustc --version && cargo --version
+
+cargo:clippy:
+  before_script:
+    - rustup component add clippy
+  script:
+    - cargo clippy --no-deps -- -D clippy::all
+
+cargo:fmt:
+  before_script:
+    - rustup component add rustfmt
+  script:
+    - cargo fmt --check
+
