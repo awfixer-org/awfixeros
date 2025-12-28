@@ -1,0 +1,11 @@
+__pycache__
+.vscode
+node_modules
+result
+
+.pyc
+*.lock
+.env
+.env.prod
+pnpm-lock.yaml
+package-lock.json

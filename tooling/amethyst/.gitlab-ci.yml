@@ -1,0 +1,19 @@
+image: "archlinux:latest"
+
+cargo:version:
+  before_script:
+    - pacman -Sy rust base-devel openssl-1.1 --noconfirm
+  script:
+    - rustc --version && cargo --version
+
+cargo:clippy:
+  before_script:
+    - pacman -Sy rust base-devel openssl-1.1 --noconfirm
+  script:
+    - cargo clippy --no-deps -- -D clippy::all
+
+cargo:fmt:
+  before_script:
+    - pacman -Sy rust base-devel openssl-1.1 --noconfirm
+  script:
+    - cargo fmt --check

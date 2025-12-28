@@ -1,0 +1,9 @@
+{
+  "name": "lint-with-ajv",
+  "dependencies": {
+    "ajv-cli": "*"
+  },
+  "overrides": {
+    "fast-json-patch": "3.1.1"
+  }
+}

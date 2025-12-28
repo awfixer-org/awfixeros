@@ -1,0 +1,6 @@
+[submodule "hydra"]
+	path = hydra
+	url = git@github.com:nixos/hydra
+[submodule "c2rust"]
+	path = c2rust
+	url = git@github.com:immunant/c2rust.git

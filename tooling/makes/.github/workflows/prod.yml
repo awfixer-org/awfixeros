@@ -1,0 +1,445 @@
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.actor }}
+jobs:
+  deployContainer_makesAmd64:
+    if: ${{ github.repository == 'fluidattacks/makes' }}
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /deployContainer/makesAmd64"
+  deployContainer_makesArm64:
+    if: ${{ github.repository == 'fluidattacks/makes' }}
+    runs-on: buildjet-2vcpu-ubuntu-2204-arm
+    permissions:
+      packages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:63b972c4641286c5f742d1f5b695e558cb0657502de093eb3b273460c6415ee9
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /deployContainer/makesArm64"
+  deployContainerManifest_makes:
+    if: ${{ github.repository == 'fluidattacks/makes' }}
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      id-token: write
+    needs: [deployContainer_makesAmd64, deployContainer_makesArm64]
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /deployContainerManifest/makes"
+  releaseGitHub:
+    if: ${{ github.repository == 'fluidattacks/makes' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: richardsimko/update-tag@5bd0e05b035e02d5da3768dbdcfc4e5e0908623e
+        with:
+          tag_name: "24.12"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: johnwbyrd/update-release@1d5ec4791e40507e5eca3b4dbf90f0b27e7e4979
+        with:
+          files: README.md
+          release: "24.12"
+          prerelease: true
+          tag: "24.12"
+          token: ${{ github.token }}
+  linux_all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: __all__
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . __all__"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  mac_all:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: __all__
+        run: nix-env -if . && m . __all__
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_deployTerraform_module:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /deployTerraform/module
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /deployTerraform/module"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_deployTerraform_module:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /deployTerraform/module
+        run: nix-env -if . && m . /deployTerraform/module
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_dev_makes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /dev/makes
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /dev/makes"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_dev_makes:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /dev/makes
+        run: nix-env -if . && m . /dev/makes
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_docs_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /docs deploy prod
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /docs deploy prod"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_formatBash:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /formatBash
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /formatBash"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_formatBash:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /formatBash
+        run: nix-env -if . && m . /formatBash
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_formatNix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /formatNix
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /formatNix"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_formatNix:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /formatNix
+        run: nix-env -if . && m . /formatNix
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_formatTerraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /formatTerraform
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /formatTerraform"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_formatTerraform:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /formatTerraform
+        run: nix-env -if . && m . /formatTerraform
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_formatYaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /formatYaml
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /formatYaml"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_formatYaml:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /formatYaml
+        run: nix-env -if . && m . /formatYaml
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_lintBash:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /lintBash
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintBash"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_lintBash:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /lintBash
+        run: nix-env -if . && m . /lintBash
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_tests_commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+        with:
+          fetch-depth: 0
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /tests/commitlint
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /tests/commitlint"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_tests_commitlint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /tests/commitlint
+        run: nix-env -if . && m . /tests/commitlint
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_lintGitMailMap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+        with:
+          fetch-depth: 0
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /lintGitMailMap
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintGitMailMap"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_lintGitMailMap:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /lintGitMailMap
+        run: nix-env -if . && m . /lintGitMailMap
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_lintNix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /lintNix
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintNix"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_lintNix:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /lintNix
+        run: nix-env -if . && m . /lintNix
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_lintTerraform_module:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /lintTerraform/module
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintTerraform/module"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_lintTerraform_module:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /lintTerraform/module
+        run: nix-env -if . && m . /lintTerraform/module
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_lintWithAjv_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /lintWithAjv/test
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /lintWithAjv/test"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_testLicense:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /testLicense
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /testLicense"
+  macos_testLicense:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /testLicense
+        run: nix-env -if . && m . /testLicense
+
+  linux_tests_makeSearchPaths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /tests/makeSearchPaths
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /tests/makeSearchPaths"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_tests_makeSearchPaths:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@v15
+      - name: /tests/makeSearchPaths
+        run: nix-env -if . && m . /tests/makeSearchPaths
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_tests_makeTemplate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /tests/makeTemplate
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /tests/makeTemplate"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_tests_makeTemplate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@v15
+      - name: /tests/makeTemplate
+        run: nix-env -if . && m . /tests/makeTemplate
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_tests_makeScript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /tests/makeScript
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /tests/makeScript"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_tests_makeScript:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@v15
+      - name: /tests/makeScript
+        run: nix-env -if . && m . /tests/makeScript
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_testTerraform_module:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /testTerraform/module
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /testTerraform/module"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+  macos_testTerraform_module:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /testTerraform/module
+        run: nix-env -if . && m . /testTerraform/module
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+  linux_tests_computeOnAwsBatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: docker://docker.io/nixos/nix@sha256:c3db4c484f6b1ee6c9bb8ca90307cfbeca8ef88156840911356a677eeaff4845
+        name: /tests/computeOnAwsBatch
+        with:
+          args: sh -c "chown -R root:root /github/workspace && nix-env -if . && m . /tests/computeOnAwsBatch
+  macos_tests_computeOnAwsBatch:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
+      - uses: cachix/install-nix-action@6ed004b9ccb68dbc28e7c85bee15fa93dbd214ac
+      - name: /tests/computeOnAwsBatch
+        run: nix-env -if . && m . /tests/computeOnAwsBatch
+name: prod
+on:
+  push:
+    branches: [main]
