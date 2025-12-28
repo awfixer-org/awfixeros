@@ -1,0 +1,18 @@
+/formatNix:
+  image: ghcr.io/fluidattacks/makes:24.12
+  interruptible: true
+  needs: []
+  script:
+    - m . /formatNix
+  variables:
+    GIT_DEPTH: 3
+    MAKES_GIT_DEPTH: 3
+/lintNix:
+  image: ghcr.io/fluidattacks/makes:24.12
+  interruptible: true
+  needs: []
+  script:
+    - m . /lintNix
+  variables:
+    GIT_DEPTH: 3
+    MAKES_GIT_DEPTH: 3

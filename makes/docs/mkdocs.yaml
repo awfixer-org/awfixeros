@@ -1,0 +1,146 @@
+site_name: Makes | Fluid Attacks
+site_url: https://makes.fluidattacks.tech/
+site_description: Documentation for Makes
+site_author: Fluid Attacks
+repo_url: https://github.com/fluidattacks/makes
+repo_name: Makes
+copyright: >
+  Copyright &copy 2023 Fluid Attacks, We hack your software -
+  <a href="#__consent">Change cookie settings</a>
+
+strict: true
+docs_dir: src
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/favicon.svg
+  favicon: assets/favicon.svg
+  language: en
+  font:
+    text: Fira Code
+    code: Fira Code Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - navigation.footer
+    - navigation.top
+    - search.highlight
+    - search.share
+extra:
+  analytics:
+    provider: google
+    property: G-257369351
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback!
+            Help us improve this page
+            by opening an
+            <a href="https://github.com/fluidattacks/makes/issues/new" target="_blank" rel="noopener">issue</a>.
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://fluidattacks.com/
+    - icon: fontawesome/solid/blog
+      link: https://fluidattacks.com/blog/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/fluidattacks/
+    - icon: fontawesome/brands/gitlab
+      link: https://gitlab.com/fluidattacks/
+    - icon: fontawesome/brands/github
+      link: https://github.com/fluidattacks
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+plugins:
+  - search:
+      lang: en
+
+nav:
+  - index.md
+  - getting-started.md
+  - Configuration:
+      - configuration/index.md
+      - configuration/essentials.md
+      - configuration/core-functions.md
+      - Secondary functions:
+          - configuration/secondary-functions/index.md
+          - configuration/secondary-functions/containers.md
+          - configuration/secondary-functions/fetchers.md
+          - configuration/secondary-functions/format-conversion.md
+          - configuration/secondary-functions/others.md
+          - configuration/secondary-functions/python.md
+          - configuration/secondary-functions/ruby.md
+      - Builtins:
+          - configuration/builtins/index.md
+          - configuration/builtins/database.md
+          - configuration/builtins/deploy.md
+          - configuration/builtins/development.md
+          - configuration/builtins/environment.md
+          - configuration/builtins/format.md
+          - configuration/builtins/lint.md
+          - configuration/builtins/secrets.md
+          - configuration/builtins/test.md
+          - configuration/builtins/utilities.md
+  - Running Makes:
+      - running-makes/cli.md
+      - running-makes/container.md
+  - versioning.md
+  - architecture.md
+  - contributing.md
+  - governance.md
+  - Security:
+      - security/index.md
+      - security/assurance.md
+      - security/design-principles.md
+      - security/slsa.md
+      - security/threat-model.md
