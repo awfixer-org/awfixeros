@@ -1,0 +1,16 @@
+
+
+PASS audio metadata: timestamp
+PASS audio metadata: synchronizationSource
+PASS audio metadata: payloadType
+PASS audio metadata: contributingSources
+PASS audio metadata: sequenceNumber
+PASS video metadata: timestamp
+PASS video metadata: ssrc
+PASS video metadata: csrcs
+PASS video metadata: width and height
+PASS video metadata: spatial and temporal index
+PASS video metadata: dependencies
+PASS video metadata: frameId
+PASS video metadata: type
+

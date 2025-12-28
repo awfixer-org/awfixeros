@@ -1,0 +1,4 @@
+
+PASS XMLHttpRequest: setRequestHeader() - headers that differ in case
+FAIL XMLHttpRequest: setRequestHeader() - headers that differ in case 1 assert_equals: expected ["content-TYPE"] but got ["Content-Type"]
+
