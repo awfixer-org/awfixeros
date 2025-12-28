@@ -1,6 +1,0 @@
-{
-  "name": "format-markdown",
-  "dependencies": {
-    "doctoc": "*"
-  }
-}
