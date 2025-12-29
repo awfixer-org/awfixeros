@@ -1,0 +1,33 @@
+CMakeLists.txt.*
+build*/
+cmake-build-*/
+release*/
+.idea/
+*.iml
+*.kdev4
+
+\.vscode/
+*.swp
+
+.DS_Store
+.version
+desktop.ini
+\.scannerwork/
+
+/snap/.snapcraft/
+/parts/
+/stage/
+/prime/
+/*.snap
+/*_source.tar.bz2
+
+# MSVC Files
+CMakeSettings.json
+CMakePresets.json
+CMakeUserPresets.json
+.vs/
+out/
+
+# vcpkg
+vcpkg_installed*/
+

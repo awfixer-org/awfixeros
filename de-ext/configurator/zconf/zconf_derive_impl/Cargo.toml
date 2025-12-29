@@ -1,0 +1,20 @@
+[package]
+name = "zconf_derive_impl"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+keywords.workspace = true
+
+[features]
+default = ["json"]
+json = ["dep:json"]
+
+[dependencies]
+figment = { version = "0.10", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+json = { workspace = true, optional = true }
+anyhow.workspace = true
+#todo: do we need schemars here ?
+# depend on merge_with_schema
+figment_schemars_bridge.workspace = true

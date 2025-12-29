@@ -1,0 +1,7 @@
+
+PASS Property text-autospace value 'normal'
+PASS Property text-autospace value 'no-autospace'
+PASS Property text-autospace value 'auto'
+PASS Property text-autospace value 'ideograph-alpha'
+PASS Property text-autospace value 'ideograph-numeric'
+

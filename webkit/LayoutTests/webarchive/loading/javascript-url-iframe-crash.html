@@ -1,0 +1,11 @@
+<html><!-- webkit-test-runner [ AlwaysAllowLocalWebarchive=true ] -->
+<script>
+    if (window.testRunner) {
+        testRunner.dumpAsText();
+        testRunner.waitUntilDone();
+    }
+    if (window.internals)
+        internals.setAlwaysAllowLocalWebarchive(true);
+    window.location="resources/javascript-url-iframe-crash.webarchive";
+</script>
+</html>

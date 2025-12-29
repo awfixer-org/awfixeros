@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="AdwAboutDialog" id="about-window">
+    <property name="application_name">Flatseal</property>
+    <property name="version">2.4.0</property>
+    <property name="copyright">© 2020-2025 Martin Abente Lahaye</property>
+    <property name="issue_url">https://github.com/tchx84/Flatseal/issues/new</property>
+    <property name="developer_name">Martin Abente Lahaye</property>
+    <property name="developers">Martin Abente Lahaye
+Bilal Elmoussaoui
+Adrien Plazas
+Kevin Degeling
+Mufeed Ali
+Leorize
+Christopher Davis
+Lctrs
+Will Thompson
+Jonas Johan Solsvik
+Maximiliano Sandoval
+Ferenc
+rusty-snake
+Guilhem Morer
+Fiana Fortressia
+Hubert Figuière
+Arvin Verain
+Daniel Hast
+Urtsi Santsi</property>
+    <property name="translator_credits">Daniel Rusek
+Heimen Stoffels
+Tim Rieck
+Óvári
+Milo Casagrande
+Kukuh Syafaat
+Åke Engelbrektson
+Bartłomiej Garbiec
+Ícar Nin Solana
+BigmenPixel0
+Ümit Solmaz
+Exponentactivity
+Eric Zhang
+Georgi Georgiev
+Sabri Ünal
+Mathieu Bousquet
+Yaron Shahrabani
+K.B.Dharun Krishna
+Dingzhong Chen
+Philipp Kiemle
+Vovkiv
+Nikolai Eugen Sandvik
+Aleksandr Melman
+Lucas Serrano
+Benedek Dévényi
+Athanasios Karachalios
+Scrambled777
+Sunniva Løvstad
+Dynamiclinking
+Ahmed Mohammed
+Danial Behzadi
+Limemane
+Mate Babos
+badbrocoli
+Léane Grasser
+lucasmz-dev</property>
+    <property name="artists">Tobias Bernard
+J.P. MacDonald</property>
+    <property name="documenters">TheEvilSkeleton</property>
+    <property name="application_icon">com.github.tchx84.Flatseal</property>
+    <property name="license_type">gpl-3-0</property>
+  </object>
+</interface>

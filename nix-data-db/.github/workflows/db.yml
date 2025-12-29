@@ -1,0 +1,72 @@
+name: "Generate package database"
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+permissions:
+  contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message || '', '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: DeterminateSystems/nix-installer-action@v4
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+      - name: AWFixerOS Cache
+        uses: cachix/cachix-action@v12
+        with:
+          name: awfixeros
+      - name: Create databases
+        run: |
+          set -euo pipefail
+          sleep $((RANDOM % 60))
+          while IFS= read -r Line; do
+            PREV_VERSION=$(cat "$Line/nixpkgs.ver")
+            RUST_LOG=nix_data_generator=trace nix develop --command -- nix-data-generator -v "$Line" --src "$Line" 1>&2
+            NEW_VERSION=$(cat "$Line/nixpkgs.ver")
+            if [ "$PREV_VERSION" != "$NEW_VERSION" ]; then
+              if [ -f "$Line/nixpkgs.db" ]; then
+                nix develop --command -- brotli "./$Line/nixpkgs.db" -o "./$Line/nixpkgs.db.br" -v -f 1>&2
+              fi
+              if [ -f "$Line/nixpkgs_versions.db" ]; then
+                nix develop --command -- brotli "./$Line/nixpkgs_versions.db" -o "./$Line/nixpkgs_versions.db.br" -v -f 1>&2
+              fi
+            fi
+          done < versions
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update databases [skip ci]
+          commit_user_email: github-actions@github.com
+          commit_author: GitHub Actions <github-actions@github.com>
+      - name: Install rclone
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rclone
+      - name: Configure rclone for Cloudflare R2
+        run: |
+          mkdir -p ~/.config/rclone
+          echo "[r2]" > ~/.config/rclone/rclone.conf
+          echo "type = s3" >> ~/.config/rclone/rclone.conf
+          echo "provider = Cloudflare" >> ~/.config/rclone/rclone.conf
+          echo "access_key_id = ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}" >> ~/.config/rclone/rclone.conf
+          echo "secret_access_key = ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}" >> ~/.config/rclone/rclone.conf
+          echo "endpoint = https://${{ secrets.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com" >> ~/.config/rclone/rclone.conf
+      - name: Check if .br artifacts exist
+        id: check_br
+        run: |
+          if find . -type f -name "*.db.br" -print -quit | grep -q .; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Sync .br artifacts to R2 using rclone
+        if: steps.check_br.outputs.exists == 'true'
+        run: |
+          rclone sync . r2:nix-cache --include "**/*.db.br" --exclude "*"

@@ -1,0 +1,4 @@
+
+PASS getTotalLength and getPointAtLength do not take pathLength into account
+PASS getPointAtLength() returns instance of SVGPoint
+

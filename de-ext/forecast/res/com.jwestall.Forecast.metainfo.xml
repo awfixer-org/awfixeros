@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.jwestall.Forecast</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <project_group>COSMIC</project_group>
+  <developer id="com.jwestall">
+    <name translate="no">Jacob Westall</name>
+  </developer>
+  <update_contact>jacob@jwestall.com</update_contact>
+  <url type="homepage">https://github.com/cosmic-utils/forecast</url>
+  <url type="vcs-browser">https://github.com/cosmic-utils/forecast</url>
+  <url type="bugtracker">https://github.com/cosmic-utils/forecast/issues</url>
+  <url type="contact">https://mathstodon.xyz/@jwestall_com</url>
+  <url type="donation">https://ko-fi.com/jwestall</url>
+  <url type="translate">https://github.com/cosmic-utils/forecast/tree/main/i18n</url>
+  <url type="contribute">https://github.com/cosmic-utils/forecast</url>
+  <content_rating type="oars-1.1" />
+  <name>Forecast</name>
+  <name xml:lang="cs">Předpověď</name>
+  <name xml:lang="hu">Előrejelzés</name>
+  <name xml:lang="pl">Prognoza</name>
+  <summary>View weather predictions</summary>
+  <summary xml:lang="cs">Podívejte se na předpověď počasí</summary>
+  <summary xml:lang="hu">Időjárás-előrejelzések megtekintése</summary>
+  <summary xml:lang="cs">Zobacz prognozę pogody</summary>
+  <description>
+    <p>Find out what the weather is going to be like with this simple weather application for the COSMIC™ Desktop.</p>
+    <p xml:lang="cs">Zjistěte jaké bude počasí s touto jednoduchou aplikací pro prostředí COSMIC™.</p>
+    <p xml:lang="hu">Tudd meg, milyen idő várható ezzel az egyszerű időjárás-alkalmazással a COSMIC™ asztali környezethez.</p>
+    <p xml:lang="cs">Zobacz jaka będzie pogoda przy pomocy tej przyjemnej aplikacji napisanej dla środowiska COSMIC™.</p>
+  </description>
+  <launchable type="desktop-id">com.jwestall.Forecast.desktop</launchable>
+  <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/cosmic-utils/forecast/main/res/icons/hicolor/scalable/apps/com.jwestall.Forecast.svg</icon>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/cosmic-utils/forecast/main/screenshots/window.png</image>
+      <caption>Dark mode</caption>
+      <caption xml:lang="cs">Tmavý režim</caption>
+      <caption xml:lang="hu">Sötét mód</caption>
+      <caption xml:lang="hu">Ciemny motyw</caption>
+    </screenshot>
+  </screenshots>
+  <branding>
+    <color type="primary" scheme_preference="light">#30ccff</color>
+    <color type="primary" scheme_preference="dark">#00a2ac</color>
+  </branding>
+  <requires>
+    <display_length compare="ge">360</display_length>
+    <internet>always</internet>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </supports>
+  <categories>
+    <category>Utility</category>
+  </categories>
+  <provides>
+    <id>com.system76.CosmicApplication</id>
+    <binary>cosmic-ext-forecast</binary>
+  </provides>
+  <releases>
+    <release version="1.3.0" date="2025-10-08">
+        <description>
+            <p>Location Detection Update</p>
+            <ul>
+                <li>Add ability to determine user location automatically</li>
+                <li>Move change city dialog to context drawer</li>
+            </ul>
+        </description>
+    </release>
+    <release version="1.2.0" date="2025-09-27">
+        <description>
+            <p>Responsive Menu Update</p>
+            <ul>
+                <li>Add various translations</li>
+                <li>Fix menu bar for low width screens</li>
+            </ul>
+        </description>
+    </release>
+    <release version="1.1.4" date="2025-05-09">
+        <description>
+            <p>Add translations</p>
+            <ul>
+                <li>Add Portuguese translation</li>
+                <li>Add Bulgarian translation</li>
+            </ul>
+        </description>
+    </release>
+    <release version="1.1.3" date="2025-05-09">
+        <description>
+            <p>Add more units</p>
+            <ul>
+                <li>Add mmHg to available pressure units</li>
+            </ul>
+        </description>
+    </release>
+    <release version="1.1.2" date="2025-04-12">
+        <description>
+            <p>Add translations</p>
+            <ul>
+                <li>Add Romanian translation</li>
+            </ul>
+        </description>
+    </release>
+    <release version="1.1.1" date="2025-03-09">
+        <description>
+            <p>Bug fixes and updates</p>
+            <ul>
+                <li>Updated libcosmic to latest version</li>
+                <li>Fixed miscellaneous bugs</li>
+            </ul>
+        </description>
+    </release>
+    <release version="1.1.0" date="2024-10-15">
+        <description>
+            <p>Options update</p>
+            <ul>
+                <li>Add option to set default view when opening the app</li>
+            </ul>
+        </description>
+    </release>
+    <release version="1.0.0" date="2024-09-30">
+        <description>
+            <p>Initial release</p>
+            <ul>
+                <li>View weather information in hourly or daily incriments</li>
+                <li>See detailed information about the current weather conditions</li>
+                <li>Plan your week ahead with a simple and easy to read forecast</li>
+            </ul>
+        </description>
+    </release>
+  </releases>
+</component>

@@ -1,0 +1,12 @@
+{
+  "field1": false,
+  "sub": {
+    "field1": true
+  },
+  "v": [1, 0],
+  "sub_enum": {
+    "Named": {
+      "hello": false
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Config",
+  "type": "object",
+  "properties": {
+    "last_used_page": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cosmic_compat": {
+      "default": true,
+      "type": "boolean"
+    },
+    "masked": {
+      "description": "masked appid",
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "X_CONFIGURATOR_SOURCE_HOME_PATH": ".config/configurator/configurator.json"
+}

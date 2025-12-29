@@ -1,0 +1,26 @@
+---
+name: SnowflakeOS
+id: modules.snowflakeos
+flake: snowflakeos-modules
+description: "SnowflakeOS default options."
+version: 0.0.1
+icon:
+  type: system
+  path: weather-snow-symbolic
+
+options:
+- label: "Enable Nix Software Center"
+  id: modules.snowflakeos.nixSoftwareCenter.enable
+  description: "Enable Nix Software Center, a graphical software center for Nix."
+  type: !switch
+    default: true
+- label: "Enable Configuration Editor"
+  id: modules.snowflakeos.nixosConfEditor.enable
+  description: "Enable NixOS Configuration Editor, a graphical editor for NixOS configurations."
+  type: !switch
+    default: true
+- label: "Enable FHS binary compatibility"
+  id: modules.snowflakeos.binaryCompat.enable
+  description: "Enable FHS binary compatibility, allowing you to run binaries from other Linux distributions. This still may not work for all binaries."
+  type: !switch
+    default: false

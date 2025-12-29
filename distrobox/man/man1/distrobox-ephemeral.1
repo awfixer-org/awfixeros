@@ -1,0 +1,45 @@
+.\
+.\"
+.TH "DISTROBOX\-EPHEMERAL" "1" "Nov 2025" "Distrobox" "User Manual"
+.SH NAME
+.IP
+.EX
+distrobox ephemeral
+distrobox\-ephemeral
+.EE
+.SH DESCRIPTION
+distrobox\-ephemeral creates a temporary distrobox that is automatically
+destroyed when the command is terminated.
+.SH SYNOPSIS
+\f[B]distrobox ephemeral\f[R]
+.IP
+.EX
+\-\-root/\-r:      launch podman/docker/lilipod with root privileges. Note that if you need root this is the preferred
+            way over \[dq]sudo distrobox\[dq] (note: if using a program other than \[aq]sudo\[aq] for root privileges is necessary,
+            specify it through the DBX_SUDO_PROGRAM env variable, or \[aq]distrobox_sudo_program\[aq] config variable)
+\-\-verbose/\-v:       show more verbosity
+\-\-help/\-h:      show this message
+\-\-/\-e:          end arguments execute the rest as command to execute at login   default: default ${USER}\[aq]s shell
+\-\-version/\-V:       show version
+.EE
+.SH EXAMPLES
+.IP
+.EX
+distrobox\-ephemeral \-\-image alpine:latest \-\- cat /etc/os\-release
+distrobox\-ephemeral \-\-root \-\-verbose \-\-image alpine:latest \-\-volume /opt:/opt
+.EE
+.PP
+You can also use flags from \f[B]distrobox\-create\f[R] to customize the
+ephemeral container to run.
+.SH SEE ALSO
+.IP
+.EX
+distrobox\-create \-\-help
+man distrobox\-create
+.EE
+.SH ENVIRONMENT VARIABLES
+.IP
+.EX
+distrobox\-ephemeral calls distrobox\-create, SEE ALSO distrobox\-create(1) for
+a list of supported environment variables to use.
+.EE

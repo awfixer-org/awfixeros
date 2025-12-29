@@ -1,0 +1,17 @@
+[package]
+name = "syncserver-settings"
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+edition.workspace = true
+
+[dependencies]
+serde.workspace = true
+slog-scope.workspace = true
+
+config = "0.11"                                             # pin to 11, 12+ introduces a breaking change for env vars.
+num_cpus = "1"
+syncserver-common = { path = "../syncserver-common" }
+syncstorage-settings = { path = "../syncstorage-settings" }
+tokenserver-settings = { path = "../tokenserver-settings" }
+url = "2.1"
