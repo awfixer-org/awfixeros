@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Config",
+  "type": "object",
+  "properties": {
+    "field1": {
+      "default": false,
+      "type": "boolean"
+    },
+    "sub": {
+      "default": {
+        "field1": false
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SubConfig"
+        }
+      ]
+    },
+    "sub_enum": {
+      "default": {
+        "NoNamed": 90
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SubConfigEnum"
+        }
+      ]
+    },
+    "v": {
+      "default": [1, 0],
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "uint32",
+        "minimum": 0.0
+      }
+    }
+  },
+  "definitions": {
+    "SubConfig": {
+      "type": "object",
+      "required": ["field1"],
+      "properties": {
+        "field1": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SubConfigEnum": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["None"]
+        },
+        {
+          "type": "object",
+          "required": ["Named"],
+          "properties": {
+            "Named": {
+              "type": "object",
+              "required": ["hello"],
+              "properties": {
+                "hello": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["NoNamed"],
+          "properties": {
+            "NoNamed": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
