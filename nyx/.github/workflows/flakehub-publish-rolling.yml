@@ -1,0 +1,27 @@
+name: "Publish into FlakeHub"
+on:
+  push:
+    branches:
+      - "nyxpkgs-unstable"
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  flakehub-publish:
+    runs-on: "ubuntu-latest"
+    permissions:
+      id-token: "write"
+      contents: "read"
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - uses: "DeterminateSystems/flakehub-push@main"
+        with:
+          name: "chaotic-cx/nyx"
+          rolling: true
+          visibility: "public"
+          flakehub-push-branch: "main"

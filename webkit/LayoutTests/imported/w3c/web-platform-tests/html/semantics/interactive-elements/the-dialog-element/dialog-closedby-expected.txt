@@ -1,0 +1,32 @@
+Outside
+
+Harness Error (TIMEOUT), message = null
+
+TIMEOUT closedby=any, modeless Test timed out
+NOTRUN closedby=any, modal
+NOTRUN closedby=any, open
+NOTRUN closedby=closerequest, modeless
+NOTRUN closedby=closerequest, modal
+NOTRUN closedby=closerequest, open
+NOTRUN closedby=none, modeless
+NOTRUN closedby=none, modal
+NOTRUN closedby=none, open
+NOTRUN closedby=AnY, modeless
+NOTRUN closedby=AnY, modal
+NOTRUN closedby=AnY, open
+NOTRUN closedby=ClOsErEqUeSt, modeless
+NOTRUN closedby=ClOsErEqUeSt, modal
+NOTRUN closedby=ClOsErEqUeSt, open
+NOTRUN closedby=NoNe, modeless
+NOTRUN closedby=NoNe, modal
+NOTRUN closedby=NoNe, open
+NOTRUN closedby=invalid, modeless
+NOTRUN closedby=invalid, modal
+NOTRUN closedby=invalid, open
+NOTRUN closedby=, modeless
+NOTRUN closedby=, modal
+NOTRUN closedby=, open
+NOTRUN closedby=null, modeless
+NOTRUN closedby=null, modal
+NOTRUN closedby=null, open
+

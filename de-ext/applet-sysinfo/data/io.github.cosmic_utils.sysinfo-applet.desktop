@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Simple System Monitor
+Keywords=System;Monitor;
+Categories=System;Monitor;
+
+Type=Application
+Icon=io.github.cosmic_utils.sysinfo-applet-symbolic
+Exec=cosmic-ext-applet-sysinfo
+Terminal=false
+StartupNotify=true
+NoDisplay=true
+X-CosmicApplet=true
+X-CosmicHoverPopup=Auto

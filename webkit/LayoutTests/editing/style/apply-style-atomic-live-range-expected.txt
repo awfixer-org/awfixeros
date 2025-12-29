@@ -1,0 +1,17 @@
+Test that WebKit does not crash when we apply style to atomic elements and that the style is not applied inside atomic elements.
+| <a>
+|   href="a"
+|   "<#selection-anchor>1"
+|   <progress>
+|     <a>
+|       style=""
+|       "2"
+|     <shadow:root>
+|       <div>
+|         useragentpart="-webkit-progress-inner-element"
+|         <div>
+|           useragentpart="-webkit-progress-bar"
+|           <div>
+|             style="inline-size: 0%;"
+|             useragentpart="-webkit-progress-value"
+|   <#selection-focus>

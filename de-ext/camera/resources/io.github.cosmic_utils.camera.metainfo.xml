@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<component type="desktop-application">
+  <id>io.github.cosmic_utils.camera</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>Camera</name>
+  <summary>Capture photos and videos</summary>
+  <description>
+    <p>
+      Camera is a third-party camera application for the COSMIC™ desktop environment.
+      Whether you need to snap a quick photo, record a video, or scan a QR code, Camera
+      provides a clean and intuitive interface that stays out of your way.
+    </p>
+    <p>
+      Just open the app and start capturing moments.
+      Add fun filters to your photos, scan QR codes to open links or connect to WiFi,
+      or use virtual camera mode to look great in video calls with your favorite filter applied.
+    </p>
+    <p>Key features:</p>
+    <ul>
+      <li>Photo and video capture: high quality and hardware accelerated</li>
+      <li>QR code scanner: open links, connect to WiFi, and more</li>
+      <li>15 creative filters: Mono, Sepia, Vivid, Noir, Pencil Sketch, and more</li>
+      <li>Virtual camera: use your filtered camera feed in video calls and other apps</li>
+      <li>Theatre mode: fullscreen, distraction-free preview</li>
+      <li>Multi-camera support: easily switch between cameras and microphones</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">io.github.cosmic_utils.camera.desktop</launchable>
+  <provides>
+    <binary>camera</binary>
+  </provides>
+  <url type="homepage">https://github.com/cosmic-utils/camera</url>
+  <url type="bugtracker">https://github.com/cosmic-utils/camera/issues</url>
+  <url type="vcs-browser">https://github.com/cosmic-utils/camera</url>
+  <developer id="io.github.cosmic_utils">
+    <name>Frederic Laing</name>
+  </developer>
+  <content_rating type="oars-1.1" />
+  <branding>
+    <color type="primary" scheme_preference="light">#62a0ea</color>
+    <color type="primary" scheme_preference="dark">#1a5fb4</color>
+  </branding>
+  <screenshots>
+    <screenshot type="default" xml:lang="en">
+      <caption>Main camera view (Photo mode)</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-001.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Main camera view (Photo mode)</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-002.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Filter picker</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-003.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Video recording in progress</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-004.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>QR code detection</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-005.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Format/resolution picker</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-006.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Virtual camera streaming</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-007.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Theatre/fullscreen mode</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-008.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Theatre/fullscreen mode</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-009.png</image>
+    </screenshot>
+    <screenshot xml:lang="en">
+      <caption>Theatre/fullscreen mode</caption>
+      <image>https://raw.githubusercontent.com/cosmic-utils/camera/main/preview/preview-010.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="0.1.18" date="2025-12-07">
+      <description>
+        <p>Release 0.1.18 includes the following changes:</p>
+        <ul>
+          <li>i18n(bg): added Bulgarian translation</li>
+          <li>implement preview mode for screenshots</li>
+          <li>remove gap between camera preview and window borders</li>
+          <li>improve theming for UI elements that can overlap the camera view</li>
+          <li>fix resizing of the filter previews</li>
+          <li>apply theming to camera switch button</li>
+          <li>deps(cargo): bump libcosmic from `62f661e` to `c2b7d78`</li>
+          <li>update cargo lock during release</li>
+          <li>correctly apply (COSMIC) theming when running in a Flatpak sandbox</li>
+          <li>i18n(es): Add Spanish translation</li>
+          <li>deps(cargo): bump libcosmic from `c2b7d78` to `05c6608`</li>
+          <li>fix qr code detection overlay beeing placed incorrectly with mirrored…</li>
+          <li>update preview images</li>
+          <li>add German translation</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.17" date="2025-12-04">
+      <description>
+        <p>Release 0.1.17 includes the following changes:</p>
+        <ul>
+          <li>rename app id from io.github.cosmicutils.camera to io.github.cosmic_utils.camera</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.16" date="2025-12-03">
+      <description>
+        <p>Release 0.1.16 includes the following changes:</p>
+        <ul>
+          <li>fix app icon in about page</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.15" date="2025-12-03">
+      <description>
+        <p>Release 0.1.15 includes the following changes:</p>
+        <ul>
+          <li>remove version number from settings page since it's alreary present in the about page</li>
+          <li>let the all resolution/framerate picker and all drawers (about, settings, filter) be closable with the escape key</li>
+          <li>more alignment with coscmic style and theme</li>
+          <li>deps(cargo): bump the rust-dependencies group with 4 updates</li>
+          <li>add photo/video capture support for cli interface</li>
+          <li>add armv7 support</li>
+          <li>improve app icon</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.14" date="2025-12-01">
+      <description>
+        <p>Release 0.1.14 includes the following changes:</p>
+        <ul>
+          <li>rename app from "COSMIC camera" to "camera"</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.13" date="2025-12-01">
+      <description>
+        <p>Release 0.1.13 includes the following changes:</p>
+        <ul>
+          <li>clearly clarify this as a third party app for COSMIC DE according to the trademark</li>
+          <li>migrate app from io.github.freddyfunk.camera to io.github.cosmic_utils.camera</li>
+          <li>deps(cargo): bump rfd from 0.15.4 to 0.16.0</li>
+          <li>deps(cargo): bump crossterm from 0.28.1 to 0.29.0</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.12" date="2025-12-01">
+      <description>
+        <p>Release 0.1.12 includes the following changes:</p>
+        <ul>
+          <li>better about page</li>
+          <li>adapt settings page to other COSMIC apps</li>
+          <li>improve UX/UI for filter preview and filter selection</li>
+          <li>rename "Report a bug" button to "Report bug"</li>
+          <li>improve resolution and framrate picker UI when using light theme mode</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.11" date="2025-11-30">
+      <description>
+        <p>Release 0.1.11 includes the following changes:</p>
+        <ul>
+          <li>update cargo version when creating a new release</li>
+          <li>Feature/terminal webcam</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.10" date="2025-11-29">
+      <description>
+        <p>Release 0.1.10 includes the following changes:</p>
+        <ul>
+          <li>deps(actions): bump actions/checkout from 4 to 6</li>
+          <li>deps(actions): bump extractions/setup-just from 2 to 3</li>
+          <li>deps(actions): bump actions/download-artifact from 4 to 6</li>
+          <li>deps(actions): bump actions/upload-artifact from 4 to 5</li>
+          <li>deps(cargo): bump the rust-dependencies group with 2 updates</li>
+          <li>deps(cargo): bump libcosmic from `639326f` to `62f661e`</li>
+          <li>let virtual camera use image or video file as source</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.9" date="2025-11-29">
+      <description>
+        <p>Release 0.1.9 includes the following changes:</p>
+        <ul>
+          <li>refactor flathub release workflow</li>
+          <li>automatically check for dependency updates</li>
+          <li>add nice flathub banner to readme</li>
+          <li>refactor flathub release workflow</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.8" date="2025-11-29">
+      <description>
+        <p>Release 0.1.8 includes the following changes:</p>
+        <ul>
+          <li>properly trigger release workflow</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.0" date="2025-01-21">
+      <description>
+        <p>Initial release of Camera.</p>
+      </description>
+    </release>
+  </releases>
+  <categories>
+    <category>AudioVideo</category>
+    <category>Video</category>
+    <category>Recorder</category>
+    <category>Photography</category>
+  </categories>
+  <keywords>
+    <keyword>camera</keyword>
+    <keyword>webcam</keyword>
+    <keyword>photo</keyword>
+    <keyword>video</keyword>
+    <keyword>recording</keyword>
+    <keyword>capture</keyword>
+    <keyword>cosmic</keyword>
+  </keywords>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+</component>

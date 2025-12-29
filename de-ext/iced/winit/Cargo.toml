@@ -1,0 +1,80 @@
+[package]
+name = "iced_winit"
+description = "A runtime for iced on top of winit"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[lints]
+workspace = true
+
+[features]
+default = ["x11"]
+debug = ["iced_runtime/debug"]
+system = ["sysinfo"]
+program = []
+x11 = ["winit/x11"]
+wayland = [
+    "winit/wayland",
+    "cctk",
+    "wayland-protocols",
+    "raw-window-handle",
+    "iced_runtime/wayland",
+    "wayland-backend",
+    "xkbcommon",
+    "xkbcommon-dl",
+    "xkeysym",
+    "iced_runtime/wayland",
+    "wayland-dlopen",
+    "wayland-csd-adwaita",
+]
+wayland-dlopen = ["winit/wayland-dlopen"]
+wayland-csd-adwaita = ["winit/wayland-csd-adwaita"]
+multi-window = ["iced_runtime/multi-window"]
+a11y = ["iced_accessibility", "iced_runtime/a11y"]
+
+[dependencies]
+iced_futures.workspace = true
+iced_graphics.workspace = true
+iced_runtime.workspace = true
+iced_accessibility.workspace = true
+iced_accessibility.optional = true
+iced_accessibility.features = ["accesskit_winit"]
+log.workspace = true
+rustc-hash.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+window_clipboard.workspace = true
+dnd.workspace = true
+winit.workspace = true
+
+sysinfo.workspace = true
+sysinfo.optional = true
+
+[target.'cfg(target_os = "linux")'.dependencies]
+raw-window-handle = { version = "0.6", optional = true }
+cctk.workspace = true
+cctk.optional = true
+wayland-protocols.workspace = true
+wayland-protocols.optional = true
+wayland-client.workspace = true
+wayland-backend = { version = "0.3.1", features = [
+    "client_system",
+], optional = true }
+xkbcommon = { version = "0.7", features = ["wayland"], optional = true }
+xkbcommon-dl = { version = "0.4.1", optional = true }
+xkeysym = { version = "0.2.0", optional = true }
+rustix = { version = "0.38" }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winapi.workspace = true
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+web-sys.workspace = true
+web-sys.features = ["Document", "Window", "HtmlCanvasElement"]
+wasm-bindgen-futures.workspace = true

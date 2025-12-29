@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Vanilla OS First Setup
+Exec=vanilla-first-setup
+Icon=org.vanillaos.FirstSetup
+Terminal=false
+Type=Application
+Categories=System;GTK;
+StartupNotify=true
+NoDisplay=true

@@ -1,0 +1,13 @@
+/target
+/vendor
+/tests
+/flatpak-builder-tools
+/.flatpak-builder
+/cargo-sources.json
+/flatpak-out
+/.cargo/config.toml
+/cosmic-flatpak
+/flatpak-repo
+/repo
+
+/io.github.cosmic_utils.cosmic-ext-applet-clipboard-manager.json

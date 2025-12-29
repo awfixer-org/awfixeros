@@ -1,0 +1,23 @@
+[package]
+name = "syncstorage-postgres"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+chrono.workspace = true
+deadpool.workspace = true
+diesel = { workspace = true, features = ["chrono", "postgres", "uuid"] }
+diesel-async = { workspace = true, features = ["postgres"] }
+diesel_migrations.workspace = true
+futures.workspace = true
+slog-scope.workspace = true
+uuid.workspace = true
+
+syncserver-common = { path = "../syncserver-common" }
+syncserver-db-common = { path = "../syncserver-db-common" }
+syncstorage-db-common = { path = "../syncstorage-db-common", features = ["postgres"] }
+syncstorage-settings = { path = "../syncstorage-settings" }

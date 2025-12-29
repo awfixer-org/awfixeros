@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealPermissionEntryRow" parent="AdwPreferencesRow">
+    <property name="activatable">False</property>
+    <property name="selectable">False</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="vexpand">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="halign">start</property>
+                <property name="valign">center</property>
+                <property name="orientation">vertical</property>
+                <property name="homogeneous">True</property>
+                <property name="hexpand">True</property>
+                <child>
+                  <object class="GtkLabel" id="description">
+                    <property name="vexpand">True</property>
+                    <property name="halign">start</property>
+                    <property name="valign">end</property>
+                    <property name="ellipsize">end</property>
+                    <property name="single-line-mode">True</property>
+                    <style>
+                      <class name="title"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="permission">
+                    <property name="vexpand">True</property>
+                    <property name="halign">start</property>
+                    <property name="valign">start</property>
+                    <property name="ellipsize">end</property>
+                    <property name="single-line-mode">True</property>
+                    <style>
+                      <class name="subtitle"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button">
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+                <property name="icon-name">folder-new-symbolic</property>
+                <style>
+                  <class name="flat"/>
+                </style>
+              </object>
+            </child>
+            <style>
+              <class name="title"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="box">
+            <property name="valign">start</property>
+            <property name="orientation">vertical</property>
+            <style>
+              <class name="content"/>
+            </style>
+          </object>
+        </child>
+        <style>
+          <class name="header"/>
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

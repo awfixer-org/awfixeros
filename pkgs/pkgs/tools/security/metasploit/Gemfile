@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+source "https://rubygems.org"
+
+gem "metasploit-framework", git: "https://github.com/rapid7/metasploit-framework", ref: "55bb27711d84dfe296d151af20ba7e89c0f0780f"
+
+gem "syslog", "~> 0.3.0"

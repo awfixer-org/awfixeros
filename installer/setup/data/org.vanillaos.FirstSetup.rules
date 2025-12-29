@@ -1,0 +1,7 @@
+polkit.addRule(function(action, subject) {
+    if (action.id.startsWith("org.vanillaos.FirstSetup.scripts") && subject.isInGroup("vanilla-first-setup")) {
+        polkit.log("action=" + action);
+        polkit.log("subject=" + subject);
+        return polkit.Result.YES;
+    }
+});

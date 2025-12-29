@@ -1,0 +1,35 @@
+diff --git a/lib/default.nix b/lib/default.nix
+index f931524002f2..5299719bfd92 100644
+--- a/lib/default.nix
++++ b/lib/default.nix
+@@ -10,6 +10,8 @@ let
+   lib = makeExtensible (self: let
+     callLibs = file: import file { lib = self; };
+   in {
++    patchedFunction = x: x;
++
+ 
+     # often used, or depending on very little
+     trivial = callLibs ./trivial.nix;
+diff --git a/nixos/modules/module-list.nix b/nixos/modules/module-list.nix
+index bd3b27c00b55..3cfde568a714 100644
+--- a/nixos/modules/module-list.nix
++++ b/nixos/modules/module-list.nix
+@@ -1818,4 +1818,10 @@
+       ./image/repart.nix
+     ];
+   }
++  ({ lib, config, ... }: {
++    options.patchedModule.test = lib.mkOption {
++      default = null;
++      example = "test";
++    };
++  })
+ ]
+diff --git a/pkgs/by-name/fl/flake-utils-plus-test/package.nix b/pkgs/by-name/fl/flake-utils-plus-test/package.nix
+new file mode 100644
+index 000000000000..ad5323375baf
+--- /dev/null
++++ b/pkgs/by-name/fl/flake-utils-plus-test/package.nix
+@@ -0,0 +1 @@
++{ coreutils }: coreutils

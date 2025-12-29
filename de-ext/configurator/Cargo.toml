@@ -1,0 +1,47 @@
+[workspace]
+members = [
+    "configurator",
+    "configurator_schema",
+    "configurator_utils",
+    "zconf/zconf2",
+    # "zconf/figment_schemars_bridge",
+    # "zconf/zconf",
+    # "zconf/zconf_derive",
+    # "zconf/zconf_derive_impl",
+]
+resolver = "2"
+
+[workspace.package]
+authors = ["wiiznokes <wiiznokes2@gmail.com>"]
+edition = "2021"
+license = "GPL-3.0"
+keywords = []
+
+[workspace.lints.rust]
+unused_variables = "allow"
+dead_code = "allow"
+unused_imports = "allow"
+
+[workspace.dependencies]
+configurator_schema = { path = "configurator_schema" }
+configurator_utils = { path = "configurator_utils" }
+figment_schemars_bridge = { path = "figment_schemars_bridge" }
+# zconf = { path = "zconf/zconf" }
+zconf2 = { path = "zconf/zconf2" }
+
+derive_more = { version = "1", features = ["unwrap"] }
+ron = "0.8"
+xdg = "2"
+directories = "5"
+figment = { version = "0.10", features = ["json"] }
+schemars = { version = "0.8", features = ["preserve_order"] }
+serde = { version = "1" }
+json = { version = "1", package = "serde_json" }
+anyhow = "1"
+log = "0.4"
+# kaydle = "0.2.0"
+# kdl = "4.6.0"
+# knuffel = "3.2.0"
+indexmap = "2"
+bon = "2"
+pretty_assertions = "1"

@@ -1,0 +1,4 @@
+
+PASS e.style['grid-lanes-direction'] = "auto" should not set the property value
+PASS e.style['grid-lanes-direction'] = "column row-reverse" should not set the property value
+
