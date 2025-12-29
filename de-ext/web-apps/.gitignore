@@ -1,0 +1,20 @@
+/target
+/debug
+/vendor
+
+**/*.rs.bk
+
+*.pdb
+
+/build
+/build-dir
+/builddir
+/.flatpak-builder
+/flatpak_build
+/repo
+
+flatpak-cargo-generator.py
+
+# ides
+.lapce
+.idea

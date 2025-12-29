@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines -->
+
+<component type="desktop-application">
+  <id>io.github.cosmic_utils.configurator</id>
+
+  <name>Configurator</name>
+  <summary>Configure your apps with an UI</summary>
+
+  <metadata_license>MIT</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+
+  <developer id="tld.vendor">
+    <name>wiiznokes</name>
+  </developer>
+
+  <icon type="remote" height="256" width="256">
+    https://raw.githubusercontent.com/cosmic-utils/configurator/master/res/app_icon.svg</icon>
+
+  <url type="homepage">https://github.com/cosmic-utils/configurator</url>
+  <url type="bugtracker">https://github.com/cosmic-utils/configurator/issues</url>
+  <url type="vcs-browser">https://github.com/cosmic-utils/configurator</url>
+
+  <content_rating type="oars-1.1" />
+
+  <description>
+    <p>TODO
+    </p>
+  </description>
+
+  <launchable type="desktop-id">io.github.cosmic_utils.configurator.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <caption>configurator screenshot</caption>
+      <image>
+        https://media.githubusercontent.com/media/cosmic-utils/configurator/master/res/screenshots/app.png</image>
+    </screenshot>
+  </screenshots>
+
+  <provides>
+    <id>com.system76.CosmicApplication</id>
+    <binary>configurator</binary>
+  </provides>
+
+  <releases>
+    <release version="24.8.23" date="2024-08-23">
+      <url type="details">
+        https://github.com/cosmic-utils/configurator/blob/master/CHANGELOG.md</url>
+    </release>
+  </releases>
+
+</component>

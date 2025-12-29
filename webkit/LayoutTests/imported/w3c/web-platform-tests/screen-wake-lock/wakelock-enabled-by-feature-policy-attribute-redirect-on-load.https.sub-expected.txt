@@ -1,0 +1,4 @@
+
+PASS Feature-Policy allow="screen-wake-lock" allows same-origin relocation
+PASS Feature-Policy allow="screen-wake-lock" disallows cross-origin relocation
+

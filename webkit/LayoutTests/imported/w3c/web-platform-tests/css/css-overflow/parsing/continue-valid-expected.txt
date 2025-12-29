@@ -1,0 +1,4 @@
+
+PASS e.style['continue'] = "auto" should set the property value
+PASS e.style['continue'] = "discard" should set the property value
+

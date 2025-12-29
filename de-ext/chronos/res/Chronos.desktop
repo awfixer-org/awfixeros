@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Chronos
+Exec=chronos %F
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=com.francescogaglione.chronos
+Categories=COSMIC;
+Keywords=
+MimeType=

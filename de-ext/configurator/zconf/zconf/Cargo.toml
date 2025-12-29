@@ -1,0 +1,12 @@
+[package]
+name = "zconf"
+version = "0.1.0"
+edition.workspace = true
+
+[features]
+default = ["json"]
+json = ["zconf_derive_impl/json"]
+
+[dependencies]
+zconf_derive = { path = "../zconf_derive" }
+zconf_derive_impl = { path = "../zconf_derive_impl" }

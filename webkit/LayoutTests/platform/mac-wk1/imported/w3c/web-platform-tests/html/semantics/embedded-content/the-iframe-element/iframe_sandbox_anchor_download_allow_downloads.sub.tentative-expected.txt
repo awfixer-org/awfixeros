@@ -1,0 +1,4 @@
+
+
+FAIL <a download> triggered download in sandbox is allowed by allow-downloads. undefined is not an object (evaluating 'anchor.href = "support/download_stash.py?token=" + token')
+

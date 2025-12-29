@@ -1,0 +1,14 @@
+allow = Дозволити
+cancel = Скасувати
+capture = Захоплення екрана
+save-to = Зберегти у
+    .clipboard = { save-to } буфер обміну
+    .pictures = { save-to } Зображення
+    .documents = { save-to } Документи
+choose-folder = Вибрати теку
+share = Поділитися
+share-screen = Поділитися екраном
+    .description = Система запитує дозвіл на демонстарцію екрана через "{ $app_name }". Оберіть екран або вікно, яким ви бажаєте поділитися.
+unknown-application = Невідомий застосунок
+output = Вивід
+window = Вікно

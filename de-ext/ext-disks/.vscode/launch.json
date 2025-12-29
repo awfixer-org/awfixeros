@@ -1,0 +1,41 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'hardware-disks-rs'",
+      "cargo": {
+        "args": ["build", "--bin=hardware-disks-rs", "--package=hardware-disks-rs"],
+        "filter": {
+          "name": "hardware-disks-rs",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'cosmos-apxui'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=cosmos-apxui",
+          "--package=cosmos-apxui"
+        ],
+        "filter": {
+          "name": "cosmos-apxui",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

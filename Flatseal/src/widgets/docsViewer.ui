@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealDocsViewer" parent="AdwWindow">
+    <property name="destroy-with-parent">True</property>
+    <property name="title">Flatseal</property>
+    <property name="modal">True</property>
+    <child>
+      <object class="GtkShortcutController">
+        <child>
+          <object class="GtkShortcut">
+            <property name="trigger">Escape</property>
+            <property name="action">action(window.close)</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="AdwHeaderBar">
+            <child>
+              <object class="GtkButton" id="backButton">
+                <property name="icon-name">go-previous-symbolic</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="forwardButton">
+                <property name="icon-name">go-next-symbolic</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="searchButton">
+                <property name="icon-name">system-search-symbolic</property>
+                <child>
+                  <object class="GtkShortcutController">
+                    <property name="scope">global</property>
+                    <child>
+                      <object class="GtkShortcut">
+                        <property name="trigger">&lt;Control&gt;F</property>
+                        <property name="action">activate</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSearchBar" id="searchBar">
+            <property name="child">
+              <object class="AdwClamp">
+                <child>
+                  <object class="GtkBox">
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkSearchEntry" id="searchEntry">
+                        <property name="hexpand">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="previousButton">
+                        <property name="icon-name">go-up-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="nextButton">
+                        <property name="icon-name">go-down-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="WebKitWebView" id="webview">
+            <property name="vexpand">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

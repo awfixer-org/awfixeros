@@ -1,0 +1,6 @@
+Some element.
+Some other element.
+Some third element.
+
+PASS Host children have sibling-index() and sibling-count() based on the DOM tree order
+
