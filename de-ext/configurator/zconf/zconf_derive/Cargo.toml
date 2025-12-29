@@ -1,0 +1,15 @@
+[package]
+name = "zconf_derive"
+version = "0.1.0"
+edition.workspace = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "2"
+quote = "1"
+static_assertions = "1"
+zconf_derive_impl = { path = "../zconf_derive_impl" }
+figment = { version = "0.10", features = ["json"] }
+serde = { version = "1", features = ["derive"] }

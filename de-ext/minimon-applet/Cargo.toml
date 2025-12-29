@@ -1,0 +1,40 @@
+[package]
+name = "cosmic-applet-minimon"
+version = "1.0.0"
+edition = "2024"
+license = "GPL-3.0"
+
+[features]
+default = []
+lyon_charts = []
+
+[profile.release]
+lto = "thin"
+opt-level = 3
+debug = false
+
+[dependencies]
+systemd-journal-logger = "2.2"
+i18n-embed-fl = "0.10"
+rust-embed = "8.3.0"
+sysinfo = "0.37"
+serde = { version = "1.0.219", features = ["derive"] }
+nvml-wrapper = "0.11.0"
+log = "0.4.27"
+anyhow = { version = "1.0.97", features = ["backtrace"] }
+zbus = { version = "5.7.1" }
+zvariant = "5.6.0"
+fern = "0.7"
+chrono = "0.4.40"
+sha2 = "0.10"
+hex = "0.4"
+bounded-vec-deque = "0.1"
+
+[dependencies.libcosmic]
+git = "https://github.com/pop-os/libcosmic.git"
+default-features = false
+features = ["applet", "applet-token"]
+
+[dependencies.i18n-embed]
+version = "0.16"
+features = ["fluent-system", "desktop-requester"]

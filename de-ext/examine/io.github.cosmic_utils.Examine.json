@@ -1,0 +1,141 @@
+{
+    "id": "io.github.cosmic_utils.Examine",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "24.08",
+    "sdk": "org.freedesktop.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable",
+        "org.freedesktop.Sdk.Extension.llvm20"
+    ],
+    "command": "examine",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--device=all",
+        "--talk-name=com.system76.CosmicSettingsDaemon",
+        "--filesystem=xdg-config/cosmic:ro"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/llvm20/bin",
+        "build-args": [
+            "--share=network"
+        ],
+        "env": {
+            "CARGO_HOME": "/run/build/examine/cargo",
+            "CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER": "clang",
+            "CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_RUSTFLAGS": "-C link-arg=-fuse-ld=/usr/lib/sdk/rust-stable/bin/mold",
+            "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER": "clang",
+            "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUSTFLAGS": "-C link-arg=-fuse-ld=/usr/lib/sdk/rust-stable/bin/mold"
+        }
+    },
+    "modules": [
+        {
+            "name": "just",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -Dm0755 just /app/bin/just"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "strip-components": 0,
+                    "dest-filename": "just.tar.gz",
+                    "url": "https://github.com/casey/just/releases/download/1.40.0/just-1.40.0-x86_64-unknown-linux-musl.tar.gz",
+                    "sha256": "181b91d0ceebe8a57723fb648ed2ce1a44d849438ce2e658339df4f8db5f1263",
+                    "only_arches": [
+                        "x86_64"
+                    ]
+                },
+                {
+                    "type": "archive",
+                    "strip-components": 0,
+                    "dest-filename": "just.tar.gz",
+                    "url": "https://github.com/casey/just/releases/download/1.40.0/just-1.40.0-aarch64-unknown-linux-musl.tar.gz",
+                    "sha256": "049d624255d150f18b0f3a1257a163366b0dc22e16526214773903125145e515",
+                    "only_arches": [
+                        "aarch64"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "libusb",
+            "config-opts": [
+                "--disable-static"
+            ],
+            "cleanup": [
+                "/lib/*.la",
+                "/lib/pkgconfig",
+                "/include"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libusb/libusb/releases/download/v1.0.28/libusb-1.0.28.tar.bz2",
+                    "sha256": "966bb0d231f94a474eaae2e67da5ec844d3527a1f386456394ff432580634b29"
+                }
+            ]
+        },
+        {
+            "name": "usbutils",
+            "buildsystem": "meson",
+            "config-opts": [
+                "--datadir=/app/share/hwdata",
+                "--sbindir=/app/bin"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/gregkh/usbutils.git",
+                    "tag": "v018",
+                    "commit": "cda6883cade6ec67671d0c7de61e70eb992509a9",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "pop-icon-theme",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/pop-os/icon-theme/archive/refs/tags/v3.5.1.tar.gz",
+                    "sha256": "92e73f252e5e9c8a1124623a7d421410ef43c798a4a992955e6eb4f666f5c8a0"
+                }
+            ]
+        },
+        {
+            "name": "cosmic-icons",
+            "buildsystem": "simple",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/pop-os/cosmic-icons.git",
+                    "commit": "0b2aed444daa52c65effbb8e71a8a19b0f2e4cb9"
+                }
+            ],
+            "build-commands": [
+                "just prefix=/app install"
+            ]
+        },
+        {
+            "name": "examine",
+            "buildsystem": "simple",
+            "build-commands": [
+                "just build-release",
+                "just flatpak"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/cosmic-utils/examine.git",
+                    "branch": "main"
+                }
+            ]
+        }
+    ]
+}

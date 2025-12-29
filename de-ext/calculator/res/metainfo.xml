@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.edfloreshz.Calculator</id>
+  <developer id="dev.edfloreshz">
+    <name>Eduardo Flores</name>
+  </developer>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <content_rating type="oars-1.1" />
+  <update_contact>edfloreshz@proton.me</update_contact>
+  <url type="homepage">https://github.com/cosmic-utils/calculator</url>
+  <url type="bugtracker">https://github.com/cosmic-utils/calculator/issues</url>
+  <url type="vcs-browser">https://github.com/cosmic-utils/calculator</url>
+  <url type="donation">https://ko-fi.com/edfloreshz</url>
+  <url type="contact">https://edfloreshz.dev</url>
+  <url type="contribute">https://github.com/cosmic-utils/calculator</url>
+  <url type="translate">https://github.com/cosmic-utils/calculator/tree/main/i18n</url>
+  <name>Calculator</name>
+  <name xml:lang="cs">Kalkulačka</name>
+  <name xml:lang="pl">Kalkulator</name>
+  <summary>Beyond the equation</summary>
+  <summary xml:lang="cs">Za hranicí výpočtu</summary>
+  <summary xml:lang="pl">Niezrównany</summary>
+  <description>
+    <p>A calculator app with infinite possibilities</p>
+    <p xml:lang="cs">Kalkulačka s nekonečnými možnostmi</p>
+    <ul>
+        <li>Exceptional performance and responsiveness.</li>
+        <li xml:lang="cs">Výjimečný výkon a rychlá odezva.</li>
+    </ul>
+  </description>
+  <branding>
+    <color type="primary" scheme_preference="light">#efefef</color>
+    <color type="primary" scheme_preference="dark">#232323</color>
+  </branding>
+  <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/cosmic-utils/calculator/main/res/icons/hicolor/scalable/apps/icon.svg</icon>
+  <launchable type="desktop-id">dev.edfloreshz.Calculator.desktop</launchable>
+  <releases>
+    <release version="0.2.0" date="2025-09-24">
+        <description>
+            <p>New backend! 🚀</p>
+            <ul>
+                <li>The app is now using a new backend to handle operations</li>
+            </ul>
+        </description>
+    </release>
+    <release version="0.1.1" date="2024-11-06">
+        <description>
+            <p>Toolkit improvements 🧰</p>
+            <ul>
+                <li>Revamped about page</li>
+                <li>Added window borders</li>
+            </ul>
+        </description>
+    </release>
+    <release version="0.1.0" date="2024-10-03">
+        <description>
+            <p>Initial release! 🎉</p>
+            <ul>
+                <li>Make your calculations</li>
+                <li>Bring back previous equations</li>
+                <li>Rest your eyes with dark mode</li>
+            </ul>
+        </description>
+    </release>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <image>
+        https://raw.githubusercontent.com/cosmic-utils/calculator/main/res/screenshots/window-light.png</image>
+      <caption>Light mode</caption>
+    </screenshot>
+    <screenshot>
+      <image>
+        https://raw.githubusercontent.com/cosmic-utils/calculator/main/res/screenshots/window-dark.png</image>
+      <caption>Dark mode</caption>
+    </screenshot>
+  </screenshots>
+  <categories>
+    <category>Utility</category>
+  </categories>
+  <requires>
+    <display_length compare="ge">360</display_length>
+    <internet>offline-only</internet>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </supports>
+  <provides>
+    <id>com.system76.CosmicApplication</id>
+    <binary>cosmic-ext-calculator</binary>
+  </provides>
+</component>

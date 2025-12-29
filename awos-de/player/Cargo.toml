@@ -1,0 +1,65 @@
+[package]
+name = "cosmic-player"
+version = "0.1.0"
+edition = "2024"
+
+[build-dependencies]
+vergen = { version = "8", features = ["git", "gitcl"] }
+
+[dependencies]
+ashpd = { version = "0.12", optional = true }
+gstreamer-tag = "0.23"
+image = "0.24.9"
+serde = { version = "1", features = ["serde_derive"] }
+tempfile = "3"
+tokio = { version = "1", features = ["sync"] }
+url = { version = "2", features = ["serde"] }
+# CLI arguments
+clap_lex = "0.7"
+# Internationalization
+icu_collator = "1.5"
+icu_provider = { version = "1.5", features = ["sync"] }
+i18n-embed = { version = "0.14", features = [
+    "fluent-system",
+    "desktop-requester",
+] }
+i18n-embed-fl = "0.7"
+rust-embed = "8"
+# Logging
+env_logger = "0.10"
+log = "0.4"
+
+[dependencies.iced_video_player]
+git = "https://github.com/jackpot51/iced_video_player.git"
+branch = "prev-cosmic"
+default-features = false
+
+[dependencies.libcosmic]
+git = "https://github.com/pop-os/libcosmic.git"
+branch = "prev-master"
+default-features = false
+features = ["tokio", "winit"]
+
+[dependencies.mpris-server]
+version = "0.8.1"
+optional = true
+
+[target.'cfg(unix)'.dependencies]
+fork = "0.2"
+
+[features]
+default = ["mpris-server", "xdg-portal", "wgpu"]
+xdg-portal = ["ashpd", "libcosmic/xdg-portal"]
+wgpu = ["iced_video_player/wgpu", "libcosmic/wgpu"]
+
+[profile.release-with-debug]
+inherits = "release"
+debug = true
+
+# [patch.'https://github.com/jackpot51/iced_video_player']
+# iced_video_player = { path = "../../iced_video_player" }
+
+# [patch.'https://github.com/pop-os/libcosmic']
+# libcosmic = { path = "../libcosmic" }
+# cosmic-config = { path = "../libcosmic/cosmic-config" }
+# cosmic-theme = { path = "../libcosmic/cosmic-theme" }

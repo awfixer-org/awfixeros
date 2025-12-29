@@ -1,0 +1,99 @@
+[package]
+name = "camera"
+version = "0.1.18"
+edition = "2024"
+license = "GPL-3.0-only"
+description = "Camera application for the COSMIC™ desktop"
+repository = "https://github.com/cosmic-utils/camera"
+authors = ["Frederic Laing <frederic.laing.development@gmail.com>"]
+
+[dependencies]
+futures = "0.3.31"
+i18n-embed = { version = "0.16.0", features = [
+    "fluent-system",
+    "desktop-requester",
+] }
+i18n-embed-fl = "0.10.0"
+open = "5.3.3"
+pollster = "0.4.0"
+rust-embed = "8.9.0"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.147"
+tokio = { version = "1.48.0", features = ["full"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.22", features = ["env-filter"] }
+gstreamer = "0.24.4"
+gstreamer-app = "0.24.4"
+gstreamer-video = "0.24.4"
+image = "0.25.9"
+chrono = "0.4.42"
+ctrlc = "3.4"
+bytemuck = { version = "1.24.0", features = ["derive"] }
+dirs = "6.0.0"
+rqrr = "0.10.0"
+rfd = "0.16"
+zbus = "5.12.0"
+uuid = { version = "1.19.0", features = ["v4"] }
+clap = { version = "4.5", features = ["derive"] }
+ratatui = "0.30"
+crossterm = "0.29"
+libc = "0.2.178"
+dng = "1.5"
+async-stream = "0.3"
+
+# Separate wgpu for compute pipelines (independent from libcosmic's wgpu for UI)
+# This allows us to use the latest wgpu features like open_with_callback for low-priority queues
+[dependencies.wgpu-compute]
+package = "wgpu"
+version = "27.0.1"
+default-features = false
+features = ["vulkan", "wgsl"]
+
+# Vulkan bindings for VK_EXT_global_priority support
+# Must match the version used by wgpu-hal
+[dependencies.ash]
+version = "0.38"
+
+[dependencies.libcosmic]
+git = "https://github.com/pop-os/libcosmic.git"
+# See https://github.com/pop-os/libcosmic/blob/master/Cargo.toml for available features.
+features = [
+    # Accessibility support
+    "a11y",
+    # About widget for the app
+    "about",
+    # Uses cosmic-settings-daemon to watch for config file changes
+    "dbus-config",
+    # Support creating additional application windows.
+    "multi-window",
+    # On app startup, focuses an existing instance if the app is already open
+    "single-instance",
+    # Uses tokio as the executor for the runtime
+    "tokio",
+    # Windowing support for X11, Windows, Mac, & Redox
+    "winit",
+    # Add Wayland support to winit
+    "wayland",
+    # GPU-accelerated rendering
+    "wgpu",
+    # XDG portal integration for Flatpak theme detection
+    "xdg-portal",
+]
+
+# Uncomment to test a locally-cloned libcosmic
+# [patch.'https://github.com/pop-os/libcosmic']
+# libcosmic = { path = "../libcosmic" }
+# cosmic-config = { path = "../libcosmic/cosmic-config" }
+# cosmic-theme = { path = "../libcosmic/cosmic-theme" }
+
+[dev-dependencies]
+naga = { version = "28.0.0", features = ["wgsl-in"] }
+
+# Patch wgpu with local version that fixes the queue family index bug in open_with_callback
+# This allows us to use compute-only queue families (Family 1 on AMD) for background compute
+#[patch.crates-io]
+#wgpu = { path = "../wgpu/wgpu" }
+#wgpu-hal = { path = "../wgpu/wgpu-hal" }
+#wgpu-core = { path = "../wgpu/wgpu-core" }
+#wgpu-types = { path = "../wgpu/wgpu-types" }
+#naga = { path = "../wgpu/naga" }

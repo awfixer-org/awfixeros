@@ -1,0 +1,28 @@
+[package]
+name = "cosmic-ext-applet-sysinfo"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0"
+authors = ["rwxroot <rwxroot@proton.me>"]
+homepage = "https://github.com/cosmic-utils/cosmic-ext-applet-sysinfo/"
+repository = "https://github.com/cosmic-utils/cosmic-ext-applet-sysinfo.git"
+
+[profile.release]
+lto = "fat"
+
+[dependencies]
+libcosmic = { git = "https://github.com/pop-os/libcosmic", default-features = false, features = [
+	"applet",
+] }
+sysinfo = { version = "0.37.0", default-features = false, features = [
+	"system",
+	"network",
+] }
+tracing = { version = "0.1.41", default-features = false, features = ["log"] }
+tracing-subscriber = { version = "0.3.20", default-features = false, features = [
+	"ansi",
+	"env-filter",
+] }
+
+[patch."https://github.com/smithay/client-toolkit.git"]
+sctk = { package = "smithay-client-toolkit", version = "=0.19.2" }

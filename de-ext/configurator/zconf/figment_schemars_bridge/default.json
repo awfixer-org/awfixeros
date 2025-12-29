@@ -1,0 +1,10 @@
+{
+  "field1": false,
+  "sub": {
+    "field1": false
+  },
+  "v": [1, 0],
+  "sub_enum": {
+    "NoNamed": 90
+  }
+}

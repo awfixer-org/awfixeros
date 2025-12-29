@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Stellarshot
+Exec=stellarshot %F
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=com.github.cosmic-utils.Stellarshot
+Categories=COSMIC;Utility;
+Keywords=Backups;Snapshots;
+MimeType=inode/directory;

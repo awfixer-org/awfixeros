@@ -1,0 +1,109 @@
+-- texttree
+
+root
+    role='banner'
+        aria-label='Main Page Title','Welcome to Test Page'
+    navigation,role='navigation',aria-label='Main navigation'
+        list
+            list-item
+                link,'Section 1'
+            list-item
+                link,'Section 2'
+    role='main'
+        section,aria-label='Interactive Elements'
+            button,aria-describedby='This button does nothing',aria-label='Test button','Click Me'
+            'This button does nothing'
+            input,'text',uid=…,placeholder='Enter text here'
+            role='button',title='Test action','Clickable Div'
+        section,aria-label='Content with Roles'
+            article,role='article','Article Title\n\nJanuary 1, 2024\nThis is some article content with highlighted text.'
+            role='complementary',aria-label='Related information'
+                'Related Links'
+                list
+                    list-item
+                        link,'Example Link'
+                    list-item
+                        link,'Test Link'
+            role='region'
+                role='status','Ready'
+                button,'Update Status'
+            textarea,uid=…,'This is a text box'
+            contentEditable,uid=…,role='textbox'
+                subscript
+                    'WebKit home page:'
+                    link,'webkit.org'
+            form,autocomplete='on',name='signup'
+                'Sign up for our newsletter'
+                input,'text',uid=…,placeholder='Username',name='username',minlength=3,maxlength=20,required
+                input,'text',uid=…,placeholder='Email',pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$',name='email',required
+                input,'text',uid=…,placeholder='Zip Code',pattern='[0-9]{5}',name='zipcode',minlength=5,maxlength=5
+    role='contentinfo'
+        'Footer content with'
+        role='img',aria-label='copyright symbol','©'
+        '2024'
+version=2
+
+-- html
+
+<body>
+    <div role='banner'>
+        <h1 aria-label='Main Page Title'>Welcome to Test Page</h1>
+    </div>
+    <nav role='navigation' aria-label='Main navigation'>
+        <ul>
+            <li>
+                <a>Section 1</a>
+            </li>
+            <li>
+                <a>Section 2</a>
+            </li>
+        </ul>
+    </nav>
+    <main role='main'>
+        <section aria-label='Interactive Elements'>
+            <button aria-describedby='This button does nothing' aria-label='Test button'>Click Me</button>
+            This button does nothing
+            <input type='text' uid=… placeholder='Enter text here'>
+            <div role='button' title='Test action'>Clickable Div</div>
+        </section>
+        <section aria-label='Content with Roles'>
+            <article role='article'>Article Title  January 1, 2024 This is some article content with highlighted text.</article>
+            <aside role='complementary' aria-label='Related information'>
+                Related Links
+                <ul>
+                    <li>
+                        <a>Example Link</a>
+                    </li>
+                    <li>
+                        <a>Test Link</a>
+                    </li>
+                </ul>
+            </aside>
+            <div role='region'>
+                <div role='status'>Ready</div>
+                <button>Update Status</button>
+            </div>
+            <textarea uid=…>This is a text box</textarea>
+            <div uid=… role='textbox'> contenteditable
+                <sub>
+                    WebKit home page:
+                    <a>webkit.org</a>
+                </sub>
+            </div>
+            <form autocomplete='on' name='signup'>
+                Sign up for our newsletter
+                <input type='text' uid=… placeholder='Username' name='username' minlength=3 maxlength=20 required>
+                <input type='text' uid=… placeholder='Email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$' name='email' required>
+                <input type='text' uid=… placeholder='Zip Code' pattern='[0-9]{5}' name='zipcode' minlength=5 maxlength=5>
+            </form>
+        </section>
+    </main>
+    <footer role='contentinfo'>
+        Footer content with
+        <span role='img' aria-label='copyright symbol'>©</span>
+        2024
+    </footer>
+</body>
+<!-- version=2 -->
+
+

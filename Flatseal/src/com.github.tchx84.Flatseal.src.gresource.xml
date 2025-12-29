@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/tchx84/Flatseal/js">
+    <file>application.js</file>
+    <file>main.js</file>
+    <file>widgets/aboutDialog.js</file>
+    <file>widgets/appInfoViewer.js</file>
+    <file>widgets/applicationRow.js</file>
+    <file>widgets/busNameRow.js</file>
+    <file>widgets/detailsButton.js</file>
+    <file>widgets/docsViewer.js</file>
+    <file>widgets/globalInfoViewer.js</file>
+    <file>widgets/globalRow.js</file>
+    <file>widgets/overrideStatusIcon.js</file>
+    <file>widgets/pathRow.js</file>
+    <file>widgets/pathsViewer.js</file>
+    <file>widgets/permissionEntryRow.js</file>
+    <file>widgets/permissionPortalRow.js</file>
+    <file>widgets/permissionSwitchRow.js</file>
+    <file>widgets/relativePathRow.js</file>
+    <file>widgets/resetButton.js</file>
+    <file>widgets/variableRow.js</file>
+    <file>widgets/window.js</file>
+    <file>models/applications.js</file>
+    <file>models/globalModel.js</file>
+    <file>models/info.js</file>
+    <file>models/overrideStatus.js</file>
+    <file>models/unsupported.js</file>
+    <file>models/persistent.js</file>
+    <file>models/permissions.js</file>
+    <file>models/devices.js</file>
+    <file>models/features.js</file>
+    <file>models/filesystems.js</file>
+    <file>models/filesystemsOther.js</file>
+    <file>models/portals.js</file>
+    <file>models/sessionBus.js</file>
+    <file>models/settings.js</file>
+    <file>models/shared.js</file>
+    <file>models/sockets.js</file>
+    <file>models/systemBus.js</file>
+    <file>models/variables.js</file>
+  </gresource>
+</gresources>

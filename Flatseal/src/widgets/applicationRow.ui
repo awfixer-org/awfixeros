@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealApplicationRow" parent="AdwActionRow">
+    <property name="title-lines">1</property>
+    <property name="subtitle-lines">1</property>
+    <property name="activatable">True</property>
+    <child type="prefix">
+      <object class="GtkImage" id="icon">
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="pixel-size">48</property>
+        <property name="icon-name">com.github.tchx84.Flatseal</property>
+        <style>
+          <class name="icon"/>
+          <class name="lowres-icon"/>
+        </style>
+      </object>
+    </child>
+    <style>
+      <class name="row"/>
+    </style>
+  </template>
+</interface>

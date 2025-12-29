@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>dev.edfloreshz.Tasks</id>
+  <developer id="dev.edfloreshz">
+    <name>Eduardo Flores</name>
+  </developer>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <content_rating type="oars-1.1" />
+  <update_contact>edfloreshz@proton.me</update_contact>
+  <url type="homepage">https://tasks.edfloreshz.dev/</url>
+  <url type="bugtracker">https://github.com/cosmic-utils/tasks/issues</url>
+  <url type="vcs-browser">https://github.com/cosmic-utils/tasks</url>
+  <url type="donation">https://ko-fi.com/edfloreshz</url>
+  <url type="contact">https://edfloreshz.dev</url>
+  <url type="contribute">https://github.com/cosmic-utils/tasks</url>
+  <url type="translate">https://github.com/cosmic-utils/tasks/tree/main/i18n</url>
+  <name>Tasks</name>
+  <name xml:lang="cs">Úkoly</name>
+  <summary>Get things done</summary>
+  <summary xml:lang="cs">Dokončete, co jste začali</summary>
+  <description>
+    <p>A simple task management app, reaching across the cosmos to help you get things done</p>
+    <p xml:lang="cs">Jednoduchá aplikace pro správu úkolů, která vám pomůže dokončit, co jste začali</p>
+    <ul>
+        <li>Exceptional performance and responsiveness.</li>
+        <li xml:lang="cs">Výjimečný výkon a rychlá odezva.</li>
+        <li>Effortless keyboard shortcut support.</li>
+        <li xml:lang="cs">Bezproblémová podpora klávesových zkratek.</li>
+        <li>Expressive emoji integration.</li>
+        <li xml:lang="cs">Expresivní integrace emoji.</li>
+    </ul>
+  </description>
+  <branding>
+    <color type="primary" scheme_preference="light">#eaeaff</color>
+    <color type="primary" scheme_preference="dark">#280c4b</color>
+  </branding>
+  <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/edfloreshz/tasks/master/res/icons/hicolor/scalable/apps/dev.edfloreshz.Tasks.svg</icon>
+  <launchable type="desktop-id">dev.edfloreshz.Tasks.desktop</launchable>
+  <releases>
+    <release version="0.2.0" date="2025-05-27">
+        <description>
+            <p>Powerful new features! 🚀</p>
+            <ul>
+                <li>✨ <em>Sub-tasks support</em></li>
+                <li>🔍 <em>Search functionality</em></li>
+                <li>📊 <em>Task sorting</em></li>
+                <li>🎨 <em>Expanded icon library</em></li>
+                <li>🌍 <em>Enhanced internationalization</em></li>
+                <li>🔧 <em>Better task management</em></li>
+                <li>⌨️ <em>Improved keyboard shortcuts</em></li>
+                <li>🎯 <em>Hide completed tasks</em></li>
+                <li>📋 <em>Enhanced export options</em></li>
+                <li>🐛 <em>Bug fixes and performance improvements</em></li>
+            </ul>
+        </description>
+    </release>
+    <release version="0.1.1" date="2024-11-06">
+        <description>
+            <p>Text editor for notes 🎉</p>
+            <ul>
+                <li>Notes now has a multiline text editor</li>
+                <li>The window has a border</li>
+                <li>The theme is now synced with COSMIC</li>
+                <li>The about page has been revamped</li>
+            </ul>
+        </description>
+    </release>
+    <release version="0.1.0" date="2024-07-02">
+        <description>
+            <p>Initial release! 🎉</p>
+            <ul>
+                <li>Organize tasks into lists</li>
+                <li>Rest your eyes with dark mode</li>
+                <li>Manage tasks with ease using keyboard shortcuts</li>
+                <li>Export tasks to Markdown</li>
+            </ul>
+        </description>
+    </release>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/edfloreshz/tasks/main/res/screenshots/window-light.png</image>
+      <caption>Main application interface</caption>
+      <caption xml:lang="cs">Hlavní rozhraní aplikace</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/edfloreshz/tasks/main/res/screenshots/window-dark.png</image>
+      <caption>Main application interface</caption>
+      <caption xml:lang="cs">Hlavní rozhraní aplikace</caption>
+    </screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/edfloreshz/tasks/main/res/screenshots/details-light.png</image>
+      <caption>Task details</caption>
+      <caption xml:lang="cs">Detaily úkolu</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/edfloreshz/tasks/main/res/screenshots/details-dark.png</image>
+      <caption>Task details</caption>
+      <caption xml:lang="cs">Detaily úkolu</caption>
+    </screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/edfloreshz/tasks/main/res/screenshots/new-list-light.png</image>
+      <caption>Create a new list</caption>
+      <caption xml:lang="cs">Tvorba nového seznamu</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/edfloreshz/tasks/main/res/screenshots/new-list-dark.png</image>
+      <caption>Create a new list</caption>
+      <caption xml:lang="cs">Tvorba nového seznamu</caption>
+    </screenshot>
+  </screenshots>
+  <categories>
+    <category>Utility</category>
+  </categories>
+  <requires>
+    <display_length compare="ge">360</display_length>
+    <internet>offline-only</internet>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </supports>
+  <provides>
+    <id>com.system76.CosmicApplication</id>
+    <binary>tasks</binary>
+  </provides>
+</component>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../resources/testharness.js"></script>
+    <script src="../../resources/testharnessreport.js"></script>
+</head>
+<body>
+    <script>
+let decoder;
+promise_test(async () => {
+     const response = await fetch("/media-resources/media-source/content/test-fragmented.mp4");
+     const buffer = await response.arrayBuffer();
+     const avcCOffset = [701, 34];
+     const frames = [
+         [41, 2193, 25120],
+         [125, 27313, 2173],
+         [83, 29486, 1348],
+         [208, 30834, 1049],
+         [166, 31883, 865],
+         [291, 32748, 930],
+         [250, 33678, 812],
+         [375, 34490, 1231],
+         [333, 35721, 803],
+         [458, 36524, 1564]
+    ];
+
+    let frameTimestamps = [];
+    decoder =  new VideoDecoder({
+        output(frame) {
+            frameTimestamps.push(frame.timestamp);
+            frame.close();
+        },
+        error(e) {
+            console.log(e);
+        }
+    });
+    decoder.configure({
+        codec: 'avc1.4d401e',
+        codedWidth: 640,
+        codedHeight: 480,
+        visibleRect: {x: 0, y: 0, width: 640, height: 480},
+        displayWidth: 640,
+        displayHeight: 480,
+        description: new Uint8Array(buffer, avcCOffset[0], avcCOffset[1])
+    });
+
+    chunks = frames.map((frame, i) => new EncodedVideoChunk({type: i == 0 ? 'key' : 'delta', timestamp: frame[0], duration: 1, data: new Uint8Array(buffer, frame[1], frame[2])}));
+
+    for (let i = 0; i < chunks.length; ++i) {
+        decoder.decode(chunks[i]);
+        if (window.internals && (i === 2 || i === 4 || i === 8)) {
+             let counter = 0;
+             while (++counter < 100 && internals.hasPendingActivity(decoder))
+                 await new Promise(resolve => setTimeout(resolve, 50));
+             assert_less_than(counter, 100, "test for " + i);
+        }
+    }
+
+    await decoder.flush();
+
+    assert_array_equals(frameTimestamps, frames.map(frame => frame[0]).sort((a,b) => a - b), "timestamps are ordered");
+}, "Test H264 reordering");
+    </script>
+</body>
+</html>

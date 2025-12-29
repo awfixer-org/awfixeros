@@ -1,0 +1,61 @@
+[package]
+name = "configurator"
+version = "0.1.0"
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+keywords.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+i18n-embed = { version = "0.15", features = [
+    "fluent-system",
+    "desktop-requester",
+] }
+rust-embed = "8"
+i18n-embed-fl = "0.9"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = [
+    "fmt",
+    "env-filter",
+    "ansi",
+] }
+tracing-journald = "0.3"
+anyhow.workspace = true
+figment.workspace = true
+schemars = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+json = { workspace = true }
+zconf2 = { workspace = true }
+derive_more = { version = "1", features = ["unwrap"] }
+ron.workspace = true
+xdg.workspace = true
+directories.workspace = true
+indexmap.workspace = true
+configurator_utils.workspace = true
+light_enum = "0.2"
+include_dir = "0.7"
+bon.workspace = true
+constcat = "0.5"
+
+[dependencies.libcosmic]
+git = "https://github.com/pop-os/libcosmic"
+branch = "master"
+# git = "https://github.com/wiiznokes/libcosmic"
+# branch = "section-imprv"
+default-features = false
+# path = "../../libcosmic"
+features = [
+    "wgpu",
+    "winit",
+    # "tokio",
+    # "single-instance",
+    #"a11y",
+]
+
+[dev-dependencies]
+configurator_schema = { workspace = true }
+serial_test = "3"
+pretty_assertions.workspace = true
