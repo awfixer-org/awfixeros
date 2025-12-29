@@ -40,7 +40,7 @@ GEM
     plist (3.7.2)
     reline (0.6.0)
       io-console (~> 0.5)
-    rexml (3.4.1)
+    rexml (3.4.2)
     rouge (4.5.1)
     safe_yaml (1.0.5)
     strings (0.2.1)
