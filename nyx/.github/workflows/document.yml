@@ -1,0 +1,47 @@
+name: Deploy Documentation
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: nyx-main-document
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Install Nix
+        if: steps.check.outputs.cached != 'true'
+        uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: "accept-flake-config = true"
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Build
+        id: build
+        run: |
+          set -euo pipefail
+          mkdir result
+          nix develop \
+            --override-input chaotic "github:chaotic-cx/nyx/${GITHUB_SHA}" \
+            ./maintenance#document -c 'true' \
+            | \
+            xargs -i@ cp @ result/index.html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: 'result'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

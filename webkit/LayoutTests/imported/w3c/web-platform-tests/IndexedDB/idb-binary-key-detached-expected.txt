@@ -1,0 +1,4 @@
+
+PASS Detached ArrayBuffer
+PASS Detached TypedArray
+

@@ -1,0 +1,11 @@
+/target
+/JSON-Schema-Test-Suite
+/log.txt
+/configurator/test_schemas
+/configurator/test_configs
+/configurator/tests
+/.vscode
+/vendor
+/flatpak-builder-tools
+/.flatpak-builder
+/cargo-sources.json

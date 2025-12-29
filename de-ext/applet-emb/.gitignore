@@ -1,0 +1,9 @@
+/target
+
+/.flatpak-builder
+/flatpak-builder-tools
+/repo
+/flatpak-out
+/flatpak-repo
+
+.DS_Store

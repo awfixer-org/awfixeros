@@ -1,0 +1,3 @@
+
+PASS HTMLFrameElement.contentDocument for cross-origin document
+

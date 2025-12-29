@@ -1,0 +1,18 @@
+[package]
+name = "syncserver-db-common"
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+edition.workspace = true
+
+[dependencies]
+backtrace.workspace = true
+deadpool.workspace = true
+http.workspace = true
+thiserror.workspace = true
+diesel.workspace = true
+diesel-async.workspace = true
+diesel_migrations.workspace = true
+log.workspace = true
+tokio.workspace = true
+syncserver-common = { path = "../syncserver-common" }

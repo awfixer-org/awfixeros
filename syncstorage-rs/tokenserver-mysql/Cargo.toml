@@ -1,0 +1,20 @@
+[package]
+name = "tokenserver-mysql"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+deadpool.workspace = true
+diesel.workspace = true
+diesel-async.workspace = true
+diesel_migrations.workspace = true
+http.workspace = true
+syncserver-common = { path = "../syncserver-common" }
+syncserver-db-common = { path = "../syncserver-db-common" }
+tokenserver-common = { path = "../tokenserver-common" }
+tokenserver-db-common = { path = "../tokenserver-db-common" }
+tokenserver-settings = { path = "../tokenserver-settings" }

@@ -1,0 +1,8 @@
+.envrc
+.vscode
+*.html
+*.txt
+/.direnv
+/result
+/src/main.rs
+/target

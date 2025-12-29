@@ -1,0 +1,15 @@
+[Desktop Entry]
+# TRANSLATORS: Don't translate this text
+Name=Flatseal
+Exec=com.github.tchx84.Flatseal
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupNotify=true
+Comment=Manage Flatpak permissions
+# TRANSLATORS: Don't translate this text
+Icon=com.github.tchx84.Flatseal
+# Translators: Do NOT translate or transliterate this text (these are enum types)!
+X-Purism-FormFactor=Workstation;Mobile;
+Keywords=seal;sandbox;override;
+DBusActivatable=true

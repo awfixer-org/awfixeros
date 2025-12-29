@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.cosmic-utils.Stellarshot</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <project_group>COSMIC</project_group>
+  <developer_name>Stellershot Developers</developer_name>
+  <update_contact>aaronhoneycutt@proton.me</update_contact>
+  <url type="homepage">https://github.com/cosmic-utils/stellarshot</url>
+  <url type="bugtracker">https://github.com/cosmic-utils/stellarshot/issues</url>
+  <content_rating type="oars-1.1" />
+  <url type="homepage"></url>
+  <url type="bugtracker"></url>
+  <name>Stellarshot</name>
+  <summary>A simple backup application for the COSMIC™ desktop.</summary>
+  <description>
+    <p>A simple backup application using Rustic for the COSMIC™ desktop.</p>
+  </description>
+  <launchable type="desktop-id">com.github.cosmic-utils.Stellarshot</launchable>
+  <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/cosmic-utils/stellarshot/main/res/icons/hicolor/scalable/apps/com.github.cosmic-utils.Stellarshot.svg</icon>
+  <screenshots>
+  </screenshots>
+  <categories>
+    <category>Utility</category>
+    <category>Backups</category>
+  </categories>
+  <provides>
+    <id>com.system76.CosmicApplication</id>
+    <mimetypes>
+      <mimetype>text/plain</mimetype>
+    </mimetypes>
+    <binary>stellarshot</binary>
+  </provides>
+</component>
