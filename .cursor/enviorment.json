@@ -1,9 +1,0 @@
-{
-  "install": "bun install",
-  "terminals": [
-    {
-      "name": "bun build",
-      "command": "bun run build"
-    }
-  ]
-}
