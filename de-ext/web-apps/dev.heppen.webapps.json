@@ -1,0 +1,45 @@
+{
+  "app-id": "dev.heppen.webapps",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "48",
+  "sdk": "org.gnome.Sdk",
+  "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
+  "base": "com.system76.Cosmic.BaseApp",
+  "base-version": "stable",
+  "command": "dev.heppen.webapps",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri",
+    "--share=network",
+    "--filesystem=xdg-config/cosmic",
+    "--talk-name=com.system76.CosmicSettingsDaemon"
+  ],
+  "build-options": {
+    "append-path": "/usr/lib/sdk/rust-stable/bin"
+  },
+  "modules": [
+    {
+      "name": "quick-webapps",
+      "buildsystem": "simple",
+      "build-options": {
+        "env": {
+          "CARGO_HOME": "/run/build/quick-webapps/cargo"
+        }
+      },
+      "build-commands": [
+        "cargo --offline fetch --manifest-path Cargo.toml --verbose",
+        "cargo --offline build --release --verbose",
+        "just install"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "."
+        },
+        "cargo-sources.json"
+      ]
+    }
+  ]
+}
