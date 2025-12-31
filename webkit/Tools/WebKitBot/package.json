@@ -5,12 +5,12 @@
   "type": "module",
   "main": "src/index.mjs",
   "dependencies": {
-    "@slack/rtm-api": "^5.0.5",
-    "@slack/web-api": "^5.10.0",
-    "axios": "^0.19.2",
+    "@slack/rtm-api": "^7.0.4",
+    "@slack/web-api": "^7.13.0",
+    "axios": "^1.13.2",
     "dotenv": "^8.2.0",
     "eslint": "^7.3.1",
-    "jest": "^26.1.0",
+    "jest": "^30.2.0",
     "node-persist": "^3.1.0",
     "replaceall": "^0.1.6",
     "rss-parser": "^3.8.0"
